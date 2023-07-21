@@ -1,7 +1,7 @@
 # ExampleProject
 
 ## Author
-ABlackCat
+ABlackCat~
 
 <!-- Insert Your Name Here -->
 

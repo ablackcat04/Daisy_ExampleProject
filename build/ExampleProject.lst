@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 1
+ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s 			page 1
 
 
    1              		.cpu cortex-m7
@@ -16,19 +16,101 @@ ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 1
   13              		.text
   14              	.Ltext0:
   15              		.cfi_sections	.debug_frame
-  16              		.section	.text._ZN5daisy8DaisyPodD2Ev,"axG",%progbits,_ZN5daisy8DaisyPodD5Ev,comdat
+  16              		.section	.text._ZN5daisy9ParameterD2Ev,"axG",%progbits,_ZN5daisy9ParameterD5Ev,comdat
   17              		.align	1
   18              		.p2align 2,,3
-  19              		.weak	_ZN5daisy8DaisyPodD2Ev
+  19              		.weak	_ZN5daisy9ParameterD2Ev
   20              		.arch armv7e-m
   21              		.syntax unified
   22              		.thumb
   23              		.thumb_func
   24              		.fpu fpv5-d16
-  26              	_ZN5daisy8DaisyPodD2Ev:
+  26              	_ZN5daisy9ParameterD2Ev:
   27              	.LVL0:
-  28              	.LFB2537:
-  29              		.file 1 "../../libDaisy//src/daisy_pod.h"
+  28              	.LFB1654:
+  29              		.file 1 "../../libDaisy//src/hid/parameter.h"
+   1:../../libDaisy//src/hid/parameter.h **** #pragma once
+   2:../../libDaisy//src/hid/parameter.h **** #include <stdint.h>
+   3:../../libDaisy//src/hid/parameter.h **** #include "hid/ctrl.h"
+   4:../../libDaisy//src/hid/parameter.h **** 
+   5:../../libDaisy//src/hid/parameter.h **** namespace daisy
+   6:../../libDaisy//src/hid/parameter.h **** {
+   7:../../libDaisy//src/hid/parameter.h **** /** @addtogroup controls
+   8:../../libDaisy//src/hid/parameter.h ****     @{
+   9:../../libDaisy//src/hid/parameter.h **** */
+  10:../../libDaisy//src/hid/parameter.h **** 
+  11:../../libDaisy//src/hid/parameter.h **** /**      Simple parameter mapping tool that takes a 0-1 input from an hid_ctrl. */
+  12:../../libDaisy//src/hid/parameter.h **** class Parameter
+  13:../../libDaisy//src/hid/parameter.h **** {
+  14:../../libDaisy//src/hid/parameter.h ****   public:
+  15:../../libDaisy//src/hid/parameter.h ****     /** Curves are applied to the output signal */
+  16:../../libDaisy//src/hid/parameter.h ****     enum Curve
+  17:../../libDaisy//src/hid/parameter.h ****     {
+  18:../../libDaisy//src/hid/parameter.h ****         LINEAR,      /**< Linear curve */
+  19:../../libDaisy//src/hid/parameter.h ****         EXPONENTIAL, /**< Exponential curve */
+  20:../../libDaisy//src/hid/parameter.h ****         LOGARITHMIC, /**<  Logarithmic curve */
+  21:../../libDaisy//src/hid/parameter.h ****         CUBE,        /**< Cubic curve */
+  22:../../libDaisy//src/hid/parameter.h ****         LAST,        /**< Final enum element. */
+  23:../../libDaisy//src/hid/parameter.h ****     };
+  24:../../libDaisy//src/hid/parameter.h ****     /** Constructor */
+  25:../../libDaisy//src/hid/parameter.h ****     Parameter() {}
+  26:../../libDaisy//src/hid/parameter.h ****     /** Destructor */
+  27:../../libDaisy//src/hid/parameter.h ****     ~Parameter() {}
+  30              		.loc 1 27 5 view -0
+  31              		.cfi_startproc
+ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s 			page 2
+
+
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              		@ link register save eliminated.
+  35              	.LBB314:
+  36              	.LBI314:
+  37              		.file 2 "../../libDaisy//src/hid/ctrl.h"
+   1:../../libDaisy//src/hid/ctrl.h **** #pragma once
+   2:../../libDaisy//src/hid/ctrl.h **** #ifndef DSY_KNOB_H
+   3:../../libDaisy//src/hid/ctrl.h **** #define DSY_KNOB_H /**< & */
+   4:../../libDaisy//src/hid/ctrl.h **** #include <stdint.h>
+   5:../../libDaisy//src/hid/ctrl.h **** 
+   6:../../libDaisy//src/hid/ctrl.h **** #ifdef __cplusplus
+   7:../../libDaisy//src/hid/ctrl.h **** namespace daisy
+   8:../../libDaisy//src/hid/ctrl.h **** {
+   9:../../libDaisy//src/hid/ctrl.h **** /**
+  10:../../libDaisy//src/hid/ctrl.h ****     @brief Hardware Interface for control inputs \n 
+  11:../../libDaisy//src/hid/ctrl.h ****     Primarily designed for ADC input controls such as \n 
+  12:../../libDaisy//src/hid/ctrl.h ****     potentiometers, and control voltage. \n 
+  13:../../libDaisy//src/hid/ctrl.h ****     @author Stephen Hensley
+  14:../../libDaisy//src/hid/ctrl.h ****     @date November 2019
+  15:../../libDaisy//src/hid/ctrl.h ****     @ingroup controls
+  16:../../libDaisy//src/hid/ctrl.h **** */
+  17:../../libDaisy//src/hid/ctrl.h **** class AnalogControl
+  18:../../libDaisy//src/hid/ctrl.h **** {
+  19:../../libDaisy//src/hid/ctrl.h ****   public:
+  20:../../libDaisy//src/hid/ctrl.h ****     /** Constructor */
+  21:../../libDaisy//src/hid/ctrl.h ****     AnalogControl() {}
+  22:../../libDaisy//src/hid/ctrl.h ****     /** destructor */
+  23:../../libDaisy//src/hid/ctrl.h ****     ~AnalogControl() {}
+  38              		.loc 2 23 5 view .LVU1
+  39              		.loc 2 23 5 is_stmt 0 view .LVU2
+  40              	.LBE314:
+  41              		.loc 1 27 19 view .LVU3
+  42 0000 7047     		bx	lr
+  43              		.cfi_endproc
+  44              	.LFE1654:
+  46              		.weak	_ZN5daisy9ParameterD1Ev
+  47              		.thumb_set _ZN5daisy9ParameterD1Ev,_ZN5daisy9ParameterD2Ev
+  48 0002 00BF     		.section	.text._ZN5daisy8DaisyPodD2Ev,"axG",%progbits,_ZN5daisy8DaisyPodD5Ev,comdat
+  49              		.align	1
+  50              		.p2align 2,,3
+  51              		.weak	_ZN5daisy8DaisyPodD2Ev
+  52              		.syntax unified
+  53              		.thumb
+  54              		.thumb_func
+  55              		.fpu fpv5-d16
+  57              	_ZN5daisy8DaisyPodD2Ev:
+  58              	.LVL1:
+  59              	.LFB2537:
+  60              		.file 3 "../../libDaisy//src/daisy_pod.h"
    1:../../libDaisy//src/daisy_pod.h **** #pragma once
    2:../../libDaisy//src/daisy_pod.h **** #ifndef DSY_POD_BSP_H
    3:../../libDaisy//src/daisy_pod.h **** #define DSY_POD_BSP_H
@@ -36,6 +118,9 @@ ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 1
    5:../../libDaisy//src/daisy_pod.h **** #include "daisy_seed.h"
    6:../../libDaisy//src/daisy_pod.h **** 
    7:../../libDaisy//src/daisy_pod.h **** namespace daisy
+ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s 			page 3
+
+
    8:../../libDaisy//src/daisy_pod.h **** {
    9:../../libDaisy//src/daisy_pod.h **** /**
   10:../../libDaisy//src/daisy_pod.h ****     @brief Class that handles initializing all of the hardware specific to the Daisy Patch Board. \
@@ -58,9 +143,6 @@ ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 1
   27:../../libDaisy//src/daisy_pod.h ****     /** Knobs */
   28:../../libDaisy//src/daisy_pod.h ****     enum Knob
   29:../../libDaisy//src/daisy_pod.h ****     {
-ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 2
-
-
   30:../../libDaisy//src/daisy_pod.h ****         KNOB_1,    /** &  */
   31:../../libDaisy//src/daisy_pod.h ****         KNOB_2,    /** & */
   32:../../libDaisy//src/daisy_pod.h ****         KNOB_LAST, /** & */
@@ -68,14 +150,14 @@ ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 1
   34:../../libDaisy//src/daisy_pod.h **** 
   35:../../libDaisy//src/daisy_pod.h ****     DaisyPod() {}
   36:../../libDaisy//src/daisy_pod.h ****     ~DaisyPod() {}
-  30              		.loc 1 36 5 view -0
-  31              		.cfi_startproc
-  32              		@ args = 0, pretend = 0, frame = 0
-  33              		@ frame_needed = 0, uses_anonymous_args = 0
-  34              		@ link register save eliminated.
-  35              	.LBB264:
-  36              	.LBI264:
-  37              		.file 2 "../../libDaisy//src/hid/midi.h"
+  61              		.loc 3 36 5 is_stmt 1 view -0
+  62              		.cfi_startproc
+  63              		@ args = 0, pretend = 0, frame = 0
+  64              		@ frame_needed = 0, uses_anonymous_args = 0
+  65              		@ link register save eliminated.
+  66              	.LBB315:
+  67              	.LBI315:
+  68              		.file 4 "../../libDaisy//src/hid/midi.h"
    1:../../libDaisy//src/hid/midi.h **** #pragma once
    2:../../libDaisy//src/hid/midi.h **** #ifndef DSY_MIDI_H
    3:../../libDaisy//src/hid/midi.h **** #define DSY_MIDI_H
@@ -96,6 +178,9 @@ ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 1
   18:../../libDaisy//src/hid/midi.h **** /** @brief   Transport layer for sending and receiving MIDI data over UART 
   19:../../libDaisy//src/hid/midi.h ****  *  @details This is the mode of communication used for TRS and DIN MIDI
   20:../../libDaisy//src/hid/midi.h ****  *  @ingroup midi
+ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s 			page 4
+
+
   21:../../libDaisy//src/hid/midi.h **** */
   22:../../libDaisy//src/hid/midi.h **** class MidiUartTransport
   23:../../libDaisy//src/hid/midi.h **** {
@@ -118,9 +203,6 @@ ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 1
   40:../../libDaisy//src/hid/midi.h ****     };
   41:../../libDaisy//src/hid/midi.h **** 
   42:../../libDaisy//src/hid/midi.h ****     inline void Init(Config config)
-ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 3
-
-
   43:../../libDaisy//src/hid/midi.h ****     {
   44:../../libDaisy//src/hid/midi.h ****         UartHandler::Config uart_config;
   45:../../libDaisy//src/hid/midi.h **** 
@@ -156,6 +238,9 @@ ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 1
   75:../../libDaisy//src/hid/midi.h ****     The MidiEvents fill a FIFO queue that the user can pop messages from.
   76:../../libDaisy//src/hid/midi.h ****     @author shensley
   77:../../libDaisy//src/hid/midi.h ****     @date March 2020
+ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s 			page 5
+
+
   78:../../libDaisy//src/hid/midi.h ****     @ingroup midi
   79:../../libDaisy//src/hid/midi.h **** */
   80:../../libDaisy//src/hid/midi.h **** template <typename Transport>
@@ -164,23 +249,20 @@ ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 1
   83:../../libDaisy//src/hid/midi.h ****   public:
   84:../../libDaisy//src/hid/midi.h ****     MidiHandler() {}
   85:../../libDaisy//src/hid/midi.h ****     ~MidiHandler() {}
-  38              		.loc 2 85 5 view .LVU1
-  39              	.LBB265:
-  40              	.LBI265:
+  69              		.loc 4 85 5 view .LVU5
+  70              	.LBB316:
+  71              	.LBI316:
   26:../../libDaisy//src/hid/midi.h **** 
-  41              		.loc 2 26 5 view .LVU2
+  72              		.loc 4 26 5 view .LVU6
   26:../../libDaisy//src/hid/midi.h **** 
-  42              		.loc 2 26 5 is_stmt 0 view .LVU3
-  43              	.LBE265:
-  44              	.LBE264:
-  45              	.LBB266:
-  46              	.LBI266:
-  47              		.file 3 "../../libDaisy//src/hid/rgb_led.h"
+  73              		.loc 4 26 5 is_stmt 0 view .LVU7
+  74              	.LBE316:
+  75              	.LBE315:
+  76              	.LBB317:
+  77              	.LBI317:
+  78              		.file 5 "../../libDaisy//src/hid/rgb_led.h"
    1:../../libDaisy//src/hid/rgb_led.h **** #pragma once
    2:../../libDaisy//src/hid/rgb_led.h **** #ifndef DSY_RGB_LED_H
-ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 4
-
-
    3:../../libDaisy//src/hid/rgb_led.h **** #define DSY_RGB_LED_H
    4:../../libDaisy//src/hid/rgb_led.h **** #include "hid/led.h"
    5:../../libDaisy//src/hid/rgb_led.h **** #include "util/color.h"
@@ -197,10 +279,10 @@ ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 1
   16:../../libDaisy//src/hid/rgb_led.h ****   public:
   17:../../libDaisy//src/hid/rgb_led.h ****     RgbLed() {}
   18:../../libDaisy//src/hid/rgb_led.h ****     ~RgbLed() {}
-  48              		.loc 3 18 5 is_stmt 1 view .LVU4
-  49              	.LBB267:
-  50              	.LBI267:
-  51              		.file 4 "../../libDaisy//src/hid/led.h"
+  79              		.loc 5 18 5 is_stmt 1 view .LVU8
+  80              	.LBB318:
+  81              	.LBI318:
+  82              		.file 6 "../../libDaisy//src/hid/led.h"
    1:../../libDaisy//src/hid/led.h **** 
    2:../../libDaisy//src/hid/led.h **** #pragma once
    3:../../libDaisy//src/hid/led.h **** #ifndef DSY_LED_H
@@ -216,6 +298,9 @@ ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 1
   13:../../libDaisy//src/hid/led.h **** {
   14:../../libDaisy//src/hid/led.h **** /**
   15:../../libDaisy//src/hid/led.h ****     @brief LED Class providing simple Software PWM ability, etc \n 
+ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s 			page 6
+
+
   16:../../libDaisy//src/hid/led.h ****     Eventually this will work with hardware PWM, and external LED Driver devices as well.
   17:../../libDaisy//src/hid/led.h ****     @author shensley
   18:../../libDaisy//src/hid/led.h ****     @date March 2020
@@ -226,45 +311,42 @@ ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 1
   23:../../libDaisy//src/hid/led.h ****   public:
   24:../../libDaisy//src/hid/led.h ****     Led() {}
   25:../../libDaisy//src/hid/led.h ****     ~Led() {}
-  52              		.loc 4 25 5 view .LVU5
-  53              		.loc 4 25 5 is_stmt 0 view .LVU6
-  54              	.LBE267:
-  55              	.LBB268:
-  56              	.LBI268:
-  57              		.loc 4 25 5 is_stmt 1 view .LVU7
-  58              		.loc 4 25 5 is_stmt 0 view .LVU8
-  59              	.LBE268:
-  60              	.LBB269:
-  61              	.LBI269:
-  62              		.loc 4 25 5 is_stmt 1 view .LVU9
-  63              		.loc 4 25 5 is_stmt 0 view .LVU10
-ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 5
-
-
-  64              	.LBE269:
-  65              	.LBE266:
-  66              	.LBB270:
-  67              	.LBI270:
-  68              		.loc 3 18 5 is_stmt 1 view .LVU11
-  69              	.LBB271:
-  70              	.LBI271:
-  71              		.loc 4 25 5 view .LVU12
-  72              		.loc 4 25 5 is_stmt 0 view .LVU13
-  73              	.LBE271:
-  74              	.LBB272:
-  75              	.LBI272:
-  76              		.loc 4 25 5 is_stmt 1 view .LVU14
-  77              		.loc 4 25 5 is_stmt 0 view .LVU15
-  78              	.LBE272:
-  79              	.LBB273:
-  80              	.LBI273:
-  81              		.loc 4 25 5 is_stmt 1 view .LVU16
-  82              		.loc 4 25 5 is_stmt 0 view .LVU17
-  83              	.LBE273:
-  84              	.LBE270:
-  85              	.LBB274:
-  86              	.LBI274:
-  87              		.file 5 "../../libDaisy//src/hid/switch.h"
+  83              		.loc 6 25 5 view .LVU9
+  84              		.loc 6 25 5 is_stmt 0 view .LVU10
+  85              	.LBE318:
+  86              	.LBB319:
+  87              	.LBI319:
+  88              		.loc 6 25 5 is_stmt 1 view .LVU11
+  89              		.loc 6 25 5 is_stmt 0 view .LVU12
+  90              	.LBE319:
+  91              	.LBB320:
+  92              	.LBI320:
+  93              		.loc 6 25 5 is_stmt 1 view .LVU13
+  94              		.loc 6 25 5 is_stmt 0 view .LVU14
+  95              	.LBE320:
+  96              	.LBE317:
+  97              	.LBB321:
+  98              	.LBI321:
+  99              		.loc 5 18 5 is_stmt 1 view .LVU15
+ 100              	.LBB322:
+ 101              	.LBI322:
+ 102              		.loc 6 25 5 view .LVU16
+ 103              		.loc 6 25 5 is_stmt 0 view .LVU17
+ 104              	.LBE322:
+ 105              	.LBB323:
+ 106              	.LBI323:
+ 107              		.loc 6 25 5 is_stmt 1 view .LVU18
+ 108              		.loc 6 25 5 is_stmt 0 view .LVU19
+ 109              	.LBE323:
+ 110              	.LBB324:
+ 111              	.LBI324:
+ 112              		.loc 6 25 5 is_stmt 1 view .LVU20
+ 113              		.loc 6 25 5 is_stmt 0 view .LVU21
+ 114              	.LBE324:
+ 115              	.LBE321:
+ 116              	.LBB325:
+ 117              	.LBI325:
+ 118              		.file 7 "../../libDaisy//src/hid/switch.h"
    1:../../libDaisy//src/hid/switch.h **** #pragma once
    2:../../libDaisy//src/hid/switch.h **** #ifndef DSY_SWITCH_H
    3:../../libDaisy//src/hid/switch.h **** #define DSY_SWITCH_H
@@ -276,6 +358,9 @@ ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 1
    9:../../libDaisy//src/hid/switch.h **** {
   10:../../libDaisy//src/hid/switch.h **** /** 
   11:../../libDaisy//src/hid/switch.h ****     Generic Class for handling momentary/latching switches \n 
+ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s 			page 7
+
+
   12:../../libDaisy//src/hid/switch.h ****     Inspired/influenced by Mutable Instruments (pichenettes) Switch classes
   13:../../libDaisy//src/hid/switch.h ****     @author Stephen Hensley
   14:../../libDaisy//src/hid/switch.h ****     @date December 2019
@@ -298,9 +383,6 @@ ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 1
   31:../../libDaisy//src/hid/switch.h ****     };
   32:../../libDaisy//src/hid/switch.h **** 
   33:../../libDaisy//src/hid/switch.h ****     /** Specifies whether to use built-in Pull Up/Down resistors to hold button at a given state wh
-ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 6
-
-
   34:../../libDaisy//src/hid/switch.h ****     enum Pull
   35:../../libDaisy//src/hid/switch.h ****     {
   36:../../libDaisy//src/hid/switch.h ****         PULL_UP,   /**< & */
@@ -310,59 +392,35 @@ ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 1
   40:../../libDaisy//src/hid/switch.h **** 
   41:../../libDaisy//src/hid/switch.h ****     Switch() {}
   42:../../libDaisy//src/hid/switch.h ****     ~Switch() {}
-  88              		.loc 5 42 5 is_stmt 1 view .LVU18
-  89              		.loc 5 42 5 is_stmt 0 view .LVU19
-  90              	.LBE274:
-  91              	.LBB275:
-  92              	.LBI275:
-  93              		.loc 5 42 5 is_stmt 1 view .LVU20
-  94              		.loc 5 42 5 is_stmt 0 view .LVU21
-  95              	.LBE275:
-  96              	.LBB276:
-  97              	.LBI276:
-  98              		.file 6 "../../libDaisy//src/hid/ctrl.h"
-   1:../../libDaisy//src/hid/ctrl.h **** #pragma once
-   2:../../libDaisy//src/hid/ctrl.h **** #ifndef DSY_KNOB_H
-   3:../../libDaisy//src/hid/ctrl.h **** #define DSY_KNOB_H /**< & */
-   4:../../libDaisy//src/hid/ctrl.h **** #include <stdint.h>
-   5:../../libDaisy//src/hid/ctrl.h **** 
-   6:../../libDaisy//src/hid/ctrl.h **** #ifdef __cplusplus
-   7:../../libDaisy//src/hid/ctrl.h **** namespace daisy
-   8:../../libDaisy//src/hid/ctrl.h **** {
-   9:../../libDaisy//src/hid/ctrl.h **** /**
-  10:../../libDaisy//src/hid/ctrl.h ****     @brief Hardware Interface for control inputs \n 
-  11:../../libDaisy//src/hid/ctrl.h ****     Primarily designed for ADC input controls such as \n 
-  12:../../libDaisy//src/hid/ctrl.h ****     potentiometers, and control voltage. \n 
-  13:../../libDaisy//src/hid/ctrl.h ****     @author Stephen Hensley
-  14:../../libDaisy//src/hid/ctrl.h ****     @date November 2019
-  15:../../libDaisy//src/hid/ctrl.h ****     @ingroup controls
-  16:../../libDaisy//src/hid/ctrl.h **** */
-  17:../../libDaisy//src/hid/ctrl.h **** class AnalogControl
-  18:../../libDaisy//src/hid/ctrl.h **** {
-  19:../../libDaisy//src/hid/ctrl.h ****   public:
-  20:../../libDaisy//src/hid/ctrl.h ****     /** Constructor */
-  21:../../libDaisy//src/hid/ctrl.h ****     AnalogControl() {}
-  22:../../libDaisy//src/hid/ctrl.h ****     /** destructor */
-  23:../../libDaisy//src/hid/ctrl.h ****     ~AnalogControl() {}
-  99              		.loc 6 23 5 is_stmt 1 view .LVU22
- 100              		.loc 6 23 5 is_stmt 0 view .LVU23
- 101              	.LBE276:
- 102              	.LBB277:
- 103              	.LBI277:
- 104              		.loc 6 23 5 is_stmt 1 view .LVU24
- 105              		.loc 6 23 5 is_stmt 0 view .LVU25
- 106              	.LBE277:
- 107              	.LBB278:
- 108              	.LBI278:
- 109              		.file 7 "../../libDaisy//src/hid/encoder.h"
+ 119              		.loc 7 42 5 is_stmt 1 view .LVU22
+ 120              		.loc 7 42 5 is_stmt 0 view .LVU23
+ 121              	.LBE325:
+ 122              	.LBB326:
+ 123              	.LBI326:
+ 124              		.loc 7 42 5 is_stmt 1 view .LVU24
+ 125              		.loc 7 42 5 is_stmt 0 view .LVU25
+ 126              	.LBE326:
+ 127              	.LBB327:
+ 128              	.LBI327:
+ 129              		.loc 2 23 5 is_stmt 1 view .LVU26
+ 130              		.loc 2 23 5 is_stmt 0 view .LVU27
+ 131              	.LBE327:
+ 132              	.LBB328:
+ 133              	.LBI328:
+ 134              		.loc 2 23 5 is_stmt 1 view .LVU28
+ 135              		.loc 2 23 5 is_stmt 0 view .LVU29
+ 136              	.LBE328:
+ 137              	.LBB329:
+ 138              	.LBI329:
+ 139              		.file 8 "../../libDaisy//src/hid/encoder.h"
    1:../../libDaisy//src/hid/encoder.h **** #pragma once
    2:../../libDaisy//src/hid/encoder.h **** #ifndef DSY_ENCODER_H
    3:../../libDaisy//src/hid/encoder.h **** #define DSY_ENCODER_H
-ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 7
-
-
    4:../../libDaisy//src/hid/encoder.h **** #include "daisy_core.h"
    5:../../libDaisy//src/hid/encoder.h **** #include "per/gpio.h"
+ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s 			page 8
+
+
    6:../../libDaisy//src/hid/encoder.h **** #include "hid/switch.h"
    7:../../libDaisy//src/hid/encoder.h **** 
    8:../../libDaisy//src/hid/encoder.h **** namespace daisy
@@ -379,16 +437,16 @@ ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 1
   19:../../libDaisy//src/hid/encoder.h ****   public:
   20:../../libDaisy//src/hid/encoder.h ****     Encoder() {}
   21:../../libDaisy//src/hid/encoder.h ****     ~Encoder() {}
- 110              		.loc 7 21 5 is_stmt 1 view .LVU26
- 111              	.LBB279:
- 112              	.LBI279:
- 113              		.loc 5 42 5 view .LVU27
- 114              		.loc 5 42 5 is_stmt 0 view .LVU28
- 115              	.LBE279:
- 116              	.LBE278:
- 117              	.LBB280:
- 118              	.LBI280:
- 119              		.file 8 "../../libDaisy//src/daisy_seed.h"
+ 140              		.loc 8 21 5 is_stmt 1 view .LVU30
+ 141              	.LBB330:
+ 142              	.LBI330:
+ 143              		.loc 7 42 5 view .LVU31
+ 144              		.loc 7 42 5 is_stmt 0 view .LVU32
+ 145              	.LBE330:
+ 146              	.LBE329:
+ 147              	.LBB331:
+ 148              	.LBI331:
+ 149              		.file 9 "../../libDaisy//src/daisy_seed.h"
    1:../../libDaisy//src/daisy_seed.h **** #pragma once
    2:../../libDaisy//src/daisy_seed.h **** #ifndef DSY_SEED_H
    3:../../libDaisy//src/daisy_seed.h **** #define DSY_SEED_H
@@ -411,18 +469,18 @@ ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 1
   20:../../libDaisy//src/daisy_seed.h ****   public:
   21:../../libDaisy//src/daisy_seed.h ****     DaisySeed() {}
   22:../../libDaisy//src/daisy_seed.h ****     ~DaisySeed() {}
- 120              		.loc 8 22 5 is_stmt 1 view .LVU29
- 121              	.LBB281:
- 122              	.LBI281:
- 123              		.file 9 "../../libDaisy//src/sys/system.h"
+ 150              		.loc 9 22 5 is_stmt 1 view .LVU33
+ 151              	.LBB332:
+ 152              	.LBI332:
+ 153              		.file 10 "../../libDaisy//src/sys/system.h"
    1:../../libDaisy//src/sys/system.h **** #ifndef DSY_SYSTEM_H
    2:../../libDaisy//src/sys/system.h **** #define DSY_SYSTEM_H
    3:../../libDaisy//src/sys/system.h **** 
-ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 8
-
-
    4:../../libDaisy//src/sys/system.h **** #ifndef UNIT_TEST // for unit tests, a dummy implementation is provided below
    5:../../libDaisy//src/sys/system.h **** 
+ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s 			page 9
+
+
    6:../../libDaisy//src/sys/system.h **** #include <cstdint>
    7:../../libDaisy//src/sys/system.h **** #include "per/tim.h"
    8:../../libDaisy//src/sys/system.h **** 
@@ -478,11 +536,11 @@ ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 1
   58:../../libDaisy//src/sys/system.h ****         bool       skip_clocks;
   59:../../libDaisy//src/sys/system.h ****     };
   60:../../libDaisy//src/sys/system.h **** 
-ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 9
-
-
   61:../../libDaisy//src/sys/system.h ****     /** Describes the different regions of memory available to the Daisy
   62:../../libDaisy//src/sys/system.h ****      * 
+ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s 			page 10
+
+
   63:../../libDaisy//src/sys/system.h ****      */
   64:../../libDaisy//src/sys/system.h ****     enum MemoryRegion
   65:../../libDaisy//src/sys/system.h ****     {
@@ -499,12 +557,12 @@ ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 1
   76:../../libDaisy//src/sys/system.h **** 
   77:../../libDaisy//src/sys/system.h ****     System() {}
   78:../../libDaisy//src/sys/system.h ****     ~System() {}
- 124              		.loc 9 78 5 view .LVU30
- 125              		.loc 9 78 5 is_stmt 0 view .LVU31
- 126              	.LBE281:
- 127              	.LBB282:
- 128              	.LBI282:
- 129              		.file 10 "../../libDaisy//src/hid/usb.h"
+ 154              		.loc 10 78 5 view .LVU34
+ 155              		.loc 10 78 5 is_stmt 0 view .LVU35
+ 156              	.LBE332:
+ 157              	.LBB333:
+ 158              	.LBI333:
+ 159              		.file 11 "../../libDaisy//src/hid/usb.h"
    1:../../libDaisy//src/hid/usb.h **** #pragma once
    2:../../libDaisy//src/hid/usb.h **** #ifndef DSY_HID_USB_H
    3:../../libDaisy//src/hid/usb.h **** #define DSY_HID_USB_H
@@ -538,11 +596,11 @@ ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 1
   31:../../libDaisy//src/hid/usb.h ****         FS_INTERNAL, /**< Internal pin */
   32:../../libDaisy//src/hid/usb.h ****         FS_EXTERNAL, /**< FS External D+ pin is Pin 38 (GPIO32). FS External D- pin is Pin 37 (GPIO
   33:../../libDaisy//src/hid/usb.h ****         FS_BOTH,     /**< Both */
-ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 10
-
-
   34:../../libDaisy//src/hid/usb.h ****     };
   35:../../libDaisy//src/hid/usb.h **** 
+ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s 			page 11
+
+
   36:../../libDaisy//src/hid/usb.h **** 
   37:../../libDaisy//src/hid/usb.h ****     /** Function called upon reception of a buffer */
   38:../../libDaisy//src/hid/usb.h ****     typedef void (*ReceiveCallback)(uint8_t* buff, uint32_t* len);
@@ -550,12 +608,12 @@ ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 1
   40:../../libDaisy//src/hid/usb.h ****     UsbHandle() {}
   41:../../libDaisy//src/hid/usb.h **** 
   42:../../libDaisy//src/hid/usb.h ****     ~UsbHandle() {}
- 130              		.loc 10 42 5 is_stmt 1 view .LVU32
- 131              		.loc 10 42 5 is_stmt 0 view .LVU33
- 132              	.LBE282:
- 133              	.LBB283:
- 134              	.LBI283:
- 135              		.file 11 "../../libDaisy//src/per/adc.h"
+ 160              		.loc 11 42 5 is_stmt 1 view .LVU36
+ 161              		.loc 11 42 5 is_stmt 0 view .LVU37
+ 162              	.LBE333:
+ 163              	.LBB334:
+ 164              	.LBI334:
+ 165              		.file 12 "../../libDaisy//src/per/adc.h"
    1:../../libDaisy//src/per/adc.h **** #pragma once
    2:../../libDaisy//src/per/adc.h **** #ifndef DSY_ADC_H
    3:../../libDaisy//src/per/adc.h **** #define DSY_ADC_H /**< Macro */
@@ -598,11 +656,11 @@ ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 1
   40:../../libDaisy//src/per/adc.h ****     };
   41:../../libDaisy//src/per/adc.h **** 
   42:../../libDaisy//src/per/adc.h ****     /** Initializes a single ADC pin as an ADC. 
-ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 11
-
-
   43:../../libDaisy//src/per/adc.h ****     \param pin Pin to init.
   44:../../libDaisy//src/per/adc.h ****      */
+ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s 			page 12
+
+
   45:../../libDaisy//src/per/adc.h ****     void InitSingle(dsy_gpio_pin pin);
   46:../../libDaisy//src/per/adc.h **** 
   47:../../libDaisy//src/per/adc.h ****     /** 
@@ -652,17 +710,17 @@ ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 1
   91:../../libDaisy//src/per/adc.h **** 
   92:../../libDaisy//src/per/adc.h ****     AdcHandle() {}
   93:../../libDaisy//src/per/adc.h ****     ~AdcHandle() {}
- 136              		.loc 11 93 5 is_stmt 1 view .LVU34
- 137              		.loc 11 93 5 is_stmt 0 view .LVU35
- 138              	.LBE283:
- 139              	.LBB284:
- 140              	.LBI284:
- 141              		.file 12 "../../libDaisy//src/hid/audio.h"
-ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 12
-
-
+ 166              		.loc 12 93 5 is_stmt 1 view .LVU38
+ 167              		.loc 12 93 5 is_stmt 0 view .LVU39
+ 168              	.LBE334:
+ 169              	.LBB335:
+ 170              	.LBI335:
+ 171              		.file 13 "../../libDaisy//src/hid/audio.h"
    1:../../libDaisy//src/hid/audio.h **** #ifndef DSY_AUDIO_H
    2:../../libDaisy//src/hid/audio.h **** #define DSY_AUDIO_H /**< & */
+ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s 			page 13
+
+
    3:../../libDaisy//src/hid/audio.h **** 
    4:../../libDaisy//src/hid/audio.h **** #include "per/sai.h"
    5:../../libDaisy//src/hid/audio.h **** 
@@ -718,11 +776,11 @@ ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 1
   55:../../libDaisy//src/hid/audio.h ****         OK,
   56:../../libDaisy//src/hid/audio.h ****         ERR,
   57:../../libDaisy//src/hid/audio.h ****     };
-ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 13
-
-
   58:../../libDaisy//src/hid/audio.h **** 
   59:../../libDaisy//src/hid/audio.h ****     /** Non-Interleaving input buffer
+ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s 			page 14
+
+
   60:../../libDaisy//src/hid/audio.h ****      * Buffer arranged by float[chn][sample] 
   61:../../libDaisy//src/hid/audio.h ****      * const so that the user can't modify the input
   62:../../libDaisy//src/hid/audio.h ****      */
@@ -760,31 +818,29 @@ ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 1
   94:../../libDaisy//src/hid/audio.h **** 
   95:../../libDaisy//src/hid/audio.h ****     AudioHandle() : pimpl_(nullptr) {}
   96:../../libDaisy//src/hid/audio.h ****     ~AudioHandle() {}
- 142              		.loc 12 96 5 is_stmt 1 view .LVU36
- 143              		.loc 12 96 5 is_stmt 0 view .LVU37
- 144              	.LBE284:
- 145              	.LBE280:
- 146              		.loc 1 36 18 view .LVU38
- 147 0000 7047     		bx	lr
- 148              		.cfi_endproc
- 149              	.LFE2537:
- 151              		.weak	_ZN5daisy8DaisyPodD1Ev
- 152              		.thumb_set _ZN5daisy8DaisyPodD1Ev,_ZN5daisy8DaisyPodD2Ev
- 153 0002 00BF     		.section	.text._Z13AudioCallbackPKPKfPPfj,"ax",%progbits
- 154              		.align	1
- 155              		.p2align 2,,3
- 156              		.global	_Z13AudioCallbackPKPKfPPfj
- 157              		.syntax unified
- 158              		.thumb
- 159              		.thumb_func
- 160              		.fpu fpv5-d16
-ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 14
+ 172              		.loc 13 96 5 is_stmt 1 view .LVU40
+ 173              		.loc 13 96 5 is_stmt 0 view .LVU41
+ 174              	.LBE335:
+ 175              	.LBE331:
+ 176              		.loc 3 36 18 view .LVU42
+ 177 0000 7047     		bx	lr
+ 178              		.cfi_endproc
+ 179              	.LFE2537:
+ 181              		.weak	_ZN5daisy8DaisyPodD1Ev
+ 182              		.thumb_set _ZN5daisy8DaisyPodD1Ev,_ZN5daisy8DaisyPodD2Ev
+ 183 0002 00BF     		.section	.text.__tcf_0,"ax",%progbits
+ 184              		.align	1
+ 185              		.p2align 2,,3
+ 186              		.syntax unified
+ 187              		.thumb
+ 188              		.thumb_func
+ 189              		.fpu fpv5-d16
+ 191              	__tcf_0:
+ 192              	.LFB5373:
+ 193              		.file 14 "ExampleProject.cpp"
+ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s 			page 15
 
 
- 162              	_Z13AudioCallbackPKPKfPPfj:
- 163              	.LVL1:
- 164              	.LFB4795:
- 165              		.file 13 "ExampleProject.cpp"
    1:ExampleProject.cpp **** #include "daisy_pod.h"
    2:ExampleProject.cpp **** #include "daisysp.h"
    3:ExampleProject.cpp **** 
@@ -793,16 +849,800 @@ ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 1
    6:ExampleProject.cpp **** 
    7:ExampleProject.cpp **** DaisyPod hw;
    8:ExampleProject.cpp **** 
-   9:ExampleProject.cpp **** void AudioCallback(AudioHandle::InputBuffer in, AudioHandle::OutputBuffer out, size_t size)
-  10:ExampleProject.cpp **** {
- 166              		.loc 13 10 1 is_stmt 1 view -0
- 167              		.cfi_startproc
- 168              		@ args = 0, pretend = 0, frame = 0
- 169              		@ frame_needed = 0, uses_anonymous_args = 0
-  11:ExampleProject.cpp **** 	hw.ProcessAllControls();
- 170              		.loc 13 11 2 view .LVU40
- 171              	.LBB285:
- 172              	.LBI285:
+   9:ExampleProject.cpp **** Parameter knob2;
+  10:ExampleProject.cpp **** 
+  11:ExampleProject.cpp **** Color led1Color[4];
+ 194              		.loc 14 11 7 is_stmt 1 view -0
+ 195              		.cfi_startproc
+ 196              		@ args = 0, pretend = 0, frame = 0
+ 197              		@ frame_needed = 0, uses_anonymous_args = 0
+ 198              		@ link register save eliminated.
+ 199              		.loc 14 11 7 is_stmt 0 view .LVU44
+ 200 0000 7047     		bx	lr
+ 201              		.cfi_endproc
+ 202              	.LFE5373:
+ 204 0002 00BF     		.section	.text.__tcf_1,"ax",%progbits
+ 205              		.align	1
+ 206              		.p2align 2,,3
+ 207              		.syntax unified
+ 208              		.thumb
+ 209              		.thumb_func
+ 210              		.fpu fpv5-d16
+ 212              	__tcf_1:
+ 213              	.LFB5378:
+ 214              		.cfi_startproc
+ 215              		@ args = 0, pretend = 0, frame = 0
+ 216              		@ frame_needed = 0, uses_anonymous_args = 0
+ 217              		@ link register save eliminated.
+ 218 0000 7047     		bx	lr
+ 219              		.cfi_endproc
+ 220              	.LFE5378:
+ 222 0002 00BF     		.section	.text._Z7InitLEDv,"ax",%progbits
+ 223              		.align	1
+ 224              		.p2align 2,,3
+ 225              		.global	_Z7InitLEDv
+ 226              		.syntax unified
+ 227              		.thumb
+ 228              		.thumb_func
+ 229              		.fpu fpv5-d16
+ 231              	_Z7InitLEDv:
+ 232              	.LFB4795:
+  12:ExampleProject.cpp **** Color led2Color[101];
+  13:ExampleProject.cpp **** int color = 0;
+  14:ExampleProject.cpp **** int color2 = 0;
+  15:ExampleProject.cpp **** 
+  16:ExampleProject.cpp **** void UpdateControls();
+  17:ExampleProject.cpp **** 
+  18:ExampleProject.cpp **** void InitLED()
+  19:ExampleProject.cpp **** {
+ 233              		.loc 14 19 1 is_stmt 1 view -0
+ 234              		.cfi_startproc
+ 235              		@ args = 0, pretend = 0, frame = 32
+ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s 			page 16
+
+
+ 236              		@ frame_needed = 0, uses_anonymous_args = 0
+  20:ExampleProject.cpp ****     led1Color[0].Init(0,0,0);
+ 237              		.loc 14 20 5 view .LVU46
+ 238              		.loc 14 20 22 is_stmt 0 view .LVU47
+ 239 0000 9FED2D1A 		vldr.32	s2, .L10+8
+ 240 0004 2D48     		ldr	r0, .L10+12
+ 241 0006 F0EE410A 		vmov.f32	s1, s2
+ 242 000a B0EE410A 		vmov.f32	s0, s2
+  19:ExampleProject.cpp ****     led1Color[0].Init(0,0,0);
+ 243              		.loc 14 19 1 view .LVU48
+ 244 000e 70B5     		push	{r4, r5, r6, lr}
+ 245              		.cfi_def_cfa_offset 16
+ 246              		.cfi_offset 4, -16
+ 247              		.cfi_offset 5, -12
+ 248              		.cfi_offset 6, -8
+ 249              		.cfi_offset 14, -4
+ 250 0010 88B0     		sub	sp, sp, #32
+ 251              		.cfi_def_cfa_offset 48
+ 252 0012 2B4C     		ldr	r4, .L10+16
+ 253              		.loc 14 20 22 view .LVU49
+ 254 0014 FFF7FEFF 		bl	_ZN5daisy5Color4InitEfff
+ 255              	.LVL2:
+  21:ExampleProject.cpp **** 	led1Color[1].Init(0,0,1);
+ 256              		.loc 14 21 2 is_stmt 1 view .LVU50
+ 257              		.loc 14 21 19 is_stmt 0 view .LVU51
+ 258 0018 DFED270A 		vldr.32	s1, .L10+8
+ 259 001c B7EE001A 		vmov.f32	s2, #1.0e+0
+ 260 0020 2848     		ldr	r0, .L10+20
+ 261 0022 B0EE600A 		vmov.f32	s0, s1
+ 262              	.LBB337:
+  22:ExampleProject.cpp **** 	led1Color[2].Init(0,0.67,0.67);
+  23:ExampleProject.cpp **** 	led1Color[3].Init(0.5,0.5,0.5);
+  24:ExampleProject.cpp **** 
+  25:ExampleProject.cpp **** 	for(int count = 0; count <= 100; count++)
+ 263              		.loc 14 25 10 view .LVU52
+ 264 0026 0025     		movs	r5, #0
+ 265              	.LBE337:
+  21:ExampleProject.cpp **** 	led1Color[1].Init(0,0,1);
+ 266              		.loc 14 21 19 view .LVU53
+ 267 0028 FFF7FEFF 		bl	_ZN5daisy5Color4InitEfff
+ 268              	.LVL3:
+  22:ExampleProject.cpp **** 	led1Color[2].Init(0,0.67,0.67);
+ 269              		.loc 14 22 2 is_stmt 1 view .LVU54
+  22:ExampleProject.cpp **** 	led1Color[2].Init(0,0.67,0.67);
+ 270              		.loc 14 22 19 is_stmt 0 view .LVU55
+ 271 002c 9FED261A 		vldr.32	s2, .L10+24
+ 272 0030 9FED210A 		vldr.32	s0, .L10+8
+ 273 0034 04F2BC46 		addw	r6, r4, #1212
+ 274 0038 F0EE410A 		vmov.f32	s1, s2
+ 275 003c 2348     		ldr	r0, .L10+28
+ 276 003e FFF7FEFF 		bl	_ZN5daisy5Color4InitEfff
+ 277              	.LVL4:
+  23:ExampleProject.cpp **** 
+ 278              		.loc 14 23 2 is_stmt 1 view .LVU56
+  23:ExampleProject.cpp **** 
+ 279              		.loc 14 23 19 is_stmt 0 view .LVU57
+ 280 0042 B6EE001A 		vmov.f32	s2, #5.0e-1
+ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s 			page 17
+
+
+ 281 0046 2248     		ldr	r0, .L10+32
+ 282 0048 F0EE410A 		vmov.f32	s1, s2
+ 283 004c B0EE410A 		vmov.f32	s0, s2
+ 284 0050 FFF7FEFF 		bl	_ZN5daisy5Color4InitEfff
+ 285              	.LVL5:
+ 286              		.loc 14 25 2 is_stmt 1 view .LVU58
+ 287              	.LBB338:
+ 288              		.loc 14 25 27 view .LVU59
+ 289              	.L7:
+  26:ExampleProject.cpp **** 	{
+  27:ExampleProject.cpp **** 		led2Color[count].Init(count*0.01, 1-count*0.01, 0);
+ 290              		.loc 14 27 3 discriminator 2 view .LVU60
+ 291              		.loc 14 27 30 is_stmt 0 discriminator 2 view .LVU61
+ 292 0054 07EE905A 		vmov	s15, r5	@ int
+ 293              		.loc 14 27 24 discriminator 2 view .LVU62
+ 294 0058 2046     		mov	r0, r4
+  25:ExampleProject.cpp **** 	{
+ 295              		.loc 14 25 27 discriminator 2 view .LVU63
+ 296 005a 0C34     		adds	r4, r4, #12
+ 297              		.loc 14 27 24 discriminator 2 view .LVU64
+ 298 005c 9FED161A 		vldr.32	s2, .L10+8
+ 299              		.loc 14 27 30 discriminator 2 view .LVU65
+ 300 0060 B8EEE70B 		vcvt.f64.s32	d0, s15
+  25:ExampleProject.cpp **** 	{
+ 301              		.loc 14 25 2 discriminator 2 view .LVU66
+ 302 0064 0135     		adds	r5, r5, #1
+ 303              	.LVL6:
+ 304              		.loc 14 27 38 discriminator 2 view .LVU67
+ 305 0066 B7EE007B 		vmov.f64	d7, #1.0e+0
+ 306              		.loc 14 27 30 discriminator 2 view .LVU68
+ 307 006a 9FED116B 		vldr.64	d6, .L10
+ 308 006e 20EE060B 		vmul.f64	d0, d0, d6
+ 309              		.loc 14 27 38 discriminator 2 view .LVU69
+ 310 0072 37EE407B 		vsub.f64	d7, d7, d0
+ 311              		.loc 14 27 24 discriminator 2 view .LVU70
+ 312 0076 B7EEC00B 		vcvt.f32.f64	s0, d0
+ 313 007a F7EEC70B 		vcvt.f32.f64	s1, d7
+ 314 007e FFF7FEFF 		bl	_ZN5daisy5Color4InitEfff
+ 315              	.LVL7:
+  25:ExampleProject.cpp **** 	{
+ 316              		.loc 14 25 2 is_stmt 1 discriminator 2 view .LVU71
+  25:ExampleProject.cpp **** 	{
+ 317              		.loc 14 25 27 discriminator 2 view .LVU72
+ 318 0082 B442     		cmp	r4, r6
+ 319 0084 E6D1     		bne	.L7
+ 320              	.LBE338:
+  28:ExampleProject.cpp **** 	}
+  29:ExampleProject.cpp **** 
+  30:ExampleProject.cpp **** 	knob2.Init(hw.knob2, 0, 100, Parameter::LINEAR);
+ 321              		.loc 14 30 2 view .LVU73
+ 322              		.loc 14 30 16 is_stmt 0 view .LVU74
+ 323 0086 134D     		ldr	r5, .L10+36
+ 324              	.LVL8:
+ 325              		.loc 14 30 16 view .LVU75
+ 326 0088 6C46     		mov	r4, sp
+ 327              		.loc 14 30 12 view .LVU76
+ 328 008a DFED130A 		vldr.32	s1, .L10+40
+ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s 			page 18
+
+
+ 329 008e 9FED0A0A 		vldr.32	s0, .L10+8
+ 330              		.loc 14 30 16 view .LVU77
+ 331 0092 0FCD     		ldmia	r5!, {r0, r1, r2, r3}
+ 332 0094 0FC4     		stmia	r4!, {r0, r1, r2, r3}
+ 333 0096 95E80F00 		ldm	r5, {r0, r1, r2, r3}
+ 334 009a 84E80F00 		stm	r4, {r0, r1, r2, r3}
+ 335              		.loc 14 30 12 view .LVU78
+ 336 009e 0022     		movs	r2, #0
+ 337 00a0 6946     		mov	r1, sp
+ 338 00a2 0E48     		ldr	r0, .L10+44
+ 339 00a4 FFF7FEFF 		bl	_ZN5daisy9Parameter4InitENS_13AnalogControlEffNS0_5CurveE
+ 340              	.LVL9:
+ 341              	.LBB339:
+ 342              	.LBI339:
+ 343              		.loc 2 23 5 is_stmt 1 view .LVU79
+ 344              		.loc 2 23 5 is_stmt 0 view .LVU80
+ 345              	.LBE339:
+  31:ExampleProject.cpp **** }
+ 346              		.loc 14 31 1 view .LVU81
+ 347 00a8 08B0     		add	sp, sp, #32
+ 348              		.cfi_def_cfa_offset 16
+ 349              		@ sp needed
+ 350 00aa 70BD     		pop	{r4, r5, r6, pc}
+ 351              	.L11:
+ 352 00ac AFF30080 		.align	3
+ 353              	.L10:
+ 354 00b0 7B14AE47 		.word	1202590843
+ 355 00b4 E17A843F 		.word	1065646817
+ 356 00b8 00000000 		.word	0
+ 357 00bc 00000000 		.word	.LANCHOR0
+ 358 00c0 00000000 		.word	.LANCHOR1
+ 359 00c4 0C000000 		.word	.LANCHOR0+12
+ 360 00c8 1F852B3F 		.word	1059816735
+ 361 00cc 18000000 		.word	.LANCHOR0+24
+ 362 00d0 24000000 		.word	.LANCHOR0+36
+ 363 00d4 84000000 		.word	hw+132
+ 364 00d8 0000C842 		.word	1120403456
+ 365 00dc 00000000 		.word	.LANCHOR2
+ 366              		.cfi_endproc
+ 367              	.LFE4795:
+ 369              		.section	.text.startup.main,"ax",%progbits
+ 370              		.align	1
+ 371              		.p2align 2,,3
+ 372              		.global	main
+ 373              		.syntax unified
+ 374              		.thumb
+ 375              		.thumb_func
+ 376              		.fpu fpv5-d16
+ 378              	main:
+ 379              	.LFB4797:
+  32:ExampleProject.cpp **** 
+  33:ExampleProject.cpp **** 
+  34:ExampleProject.cpp **** void AudioCallback(AudioHandle::InputBuffer in, AudioHandle::OutputBuffer out, size_t size)
+  35:ExampleProject.cpp **** {
+  36:ExampleProject.cpp **** 	UpdateControls();
+  37:ExampleProject.cpp **** 
+  38:ExampleProject.cpp **** 	hw.ProcessAllControls();
+ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s 			page 19
+
+
+  39:ExampleProject.cpp **** 	for (size_t i = 0; i < size; i++)
+  40:ExampleProject.cpp **** 	{
+  41:ExampleProject.cpp **** 		out[0][i] = in[0][i];
+  42:ExampleProject.cpp **** 		out[1][i] = in[1][i];
+  43:ExampleProject.cpp **** 	}
+  44:ExampleProject.cpp **** }
+  45:ExampleProject.cpp **** 
+  46:ExampleProject.cpp **** int main(void)
+  47:ExampleProject.cpp **** {
+ 380              		.loc 14 47 1 is_stmt 1 view -0
+ 381              		.cfi_startproc
+ 382              		@ Volatile: function does not return.
+ 383              		@ args = 0, pretend = 0, frame = 0
+ 384              		@ frame_needed = 0, uses_anonymous_args = 0
+  48:ExampleProject.cpp **** 	hw.Init();
+ 385              		.loc 14 48 2 view .LVU83
+  47:ExampleProject.cpp **** 	hw.Init();
+ 386              		.loc 14 47 1 is_stmt 0 view .LVU84
+ 387 0000 08B5     		push	{r3, lr}
+ 388              		.cfi_def_cfa_offset 8
+ 389              		.cfi_offset 3, -8
+ 390              		.cfi_offset 14, -4
+ 391              		.loc 14 48 9 view .LVU85
+ 392 0002 0021     		movs	r1, #0
+ 393 0004 0A48     		ldr	r0, .L15
+ 394 0006 FFF7FEFF 		bl	_ZN5daisy8DaisyPod4InitEb
+ 395              	.LVL10:
+  49:ExampleProject.cpp **** 	hw.SetAudioBlockSize(4); // number of samples handled per callback
+ 396              		.loc 14 49 2 is_stmt 1 view .LVU86
+ 397              		.loc 14 49 22 is_stmt 0 view .LVU87
+ 398 000a 0421     		movs	r1, #4
+ 399 000c 0848     		ldr	r0, .L15
+ 400 000e FFF7FEFF 		bl	_ZN5daisy8DaisyPod17SetAudioBlockSizeEj
+ 401              	.LVL11:
+  50:ExampleProject.cpp **** 	hw.SetAudioSampleRate(SaiHandle::Config::SampleRate::SAI_48KHZ);
+ 402              		.loc 14 50 2 is_stmt 1 view .LVU88
+ 403              		.loc 14 50 23 is_stmt 0 view .LVU89
+ 404 0012 0321     		movs	r1, #3
+ 405 0014 0648     		ldr	r0, .L15
+ 406 0016 FFF7FEFF 		bl	_ZN5daisy8DaisyPod18SetAudioSampleRateENS_9SaiHandle6Config10SampleRateE
+ 407              	.LVL12:
+  51:ExampleProject.cpp **** 	hw.StartAdc();
+ 408              		.loc 14 51 2 is_stmt 1 view .LVU90
+ 409              		.loc 14 51 13 is_stmt 0 view .LVU91
+ 410 001a 0548     		ldr	r0, .L15
+ 411 001c FFF7FEFF 		bl	_ZN5daisy8DaisyPod8StartAdcEv
+ 412              	.LVL13:
+  52:ExampleProject.cpp **** 	hw.StartAudio(AudioCallback);
+ 413              		.loc 14 52 2 is_stmt 1 view .LVU92
+ 414              		.loc 14 52 15 is_stmt 0 view .LVU93
+ 415 0020 0449     		ldr	r1, .L15+4
+ 416 0022 0348     		ldr	r0, .L15
+ 417 0024 FFF7FEFF 		bl	_ZN5daisy8DaisyPod10StartAudioEPFvPKPKfPPfjE
+ 418              	.LVL14:
+  53:ExampleProject.cpp **** 
+  54:ExampleProject.cpp **** 	InitLED();
+ 419              		.loc 14 54 2 is_stmt 1 view .LVU94
+ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s 			page 20
+
+
+ 420              		.loc 14 54 9 is_stmt 0 view .LVU95
+ 421 0028 FFF7FEFF 		bl	_Z7InitLEDv
+ 422              	.LVL15:
+ 423              	.L13:
+  55:ExampleProject.cpp **** 
+  56:ExampleProject.cpp **** 
+  57:ExampleProject.cpp **** 	while(1)
+ 424              		.loc 14 57 2 is_stmt 1 discriminator 1 view .LVU96
+ 425              		.loc 14 57 2 discriminator 1 view .LVU97
+ 426              		.loc 14 57 2 discriminator 1 view .LVU98
+ 427              		.loc 14 57 2 discriminator 1 view .LVU99
+ 428 002c FEE7     		b	.L13
+ 429              	.L16:
+ 430 002e 00BF     		.align	2
+ 431              	.L15:
+ 432 0030 00000000 		.word	hw
+ 433 0034 00000000 		.word	_Z13AudioCallbackPKPKfPPfj
+ 434              		.cfi_endproc
+ 435              	.LFE4797:
+ 437              		.section	.text._Z13UpdateEncoderv,"ax",%progbits
+ 438              		.align	1
+ 439              		.p2align 2,,3
+ 440              		.global	_Z13UpdateEncoderv
+ 441              		.syntax unified
+ 442              		.thumb
+ 443              		.thumb_func
+ 444              		.fpu fpv5-d16
+ 446              	_Z13UpdateEncoderv:
+ 447              	.LFB4798:
+  58:ExampleProject.cpp **** 	{
+  59:ExampleProject.cpp **** 
+  60:ExampleProject.cpp **** 	}
+  61:ExampleProject.cpp **** }
+  62:ExampleProject.cpp **** 
+  63:ExampleProject.cpp **** void UpdateEncoder()
+  64:ExampleProject.cpp **** {
+ 448              		.loc 14 64 1 view -0
+ 449              		.cfi_startproc
+ 450              		@ args = 0, pretend = 0, frame = 0
+ 451              		@ frame_needed = 0, uses_anonymous_args = 0
+ 452              		@ link register save eliminated.
+  65:ExampleProject.cpp **** 	color = color + hw.encoder.Increment();
+ 453              		.loc 14 65 2 view .LVU101
+ 454              	.LVL16:
+ 455              	.LBB352:
+ 456              	.LBI352:
+  22:../../libDaisy//src/hid/encoder.h **** 
+  23:../../libDaisy//src/hid/encoder.h ****     /** Initializes the encoder with the specified hardware pins.
+  24:../../libDaisy//src/hid/encoder.h ****      * Update rate is to be deprecated in a future release
+  25:../../libDaisy//src/hid/encoder.h ****      */
+  26:../../libDaisy//src/hid/encoder.h ****     void Init(dsy_gpio_pin a,
+  27:../../libDaisy//src/hid/encoder.h ****               dsy_gpio_pin b,
+  28:../../libDaisy//src/hid/encoder.h ****               dsy_gpio_pin click,
+  29:../../libDaisy//src/hid/encoder.h ****               float        update_rate = 0.f);
+  30:../../libDaisy//src/hid/encoder.h ****     /** Called at update_rate to debounce and handle timing for the switch.
+  31:../../libDaisy//src/hid/encoder.h ****      * In order for events not to be missed, its important that the Edge/Pressed checks be made at 
+  32:../../libDaisy//src/hid/encoder.h ****      */
+ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s 			page 21
+
+
+  33:../../libDaisy//src/hid/encoder.h ****     void Debounce();
+  34:../../libDaisy//src/hid/encoder.h **** 
+  35:../../libDaisy//src/hid/encoder.h ****     /** Returns +1 if the encoder was turned clockwise, -1 if it was turned counter-clockwise, or 0
+  36:../../libDaisy//src/hid/encoder.h ****     inline int32_t Increment() const { return updated_ ? inc_ : 0; }
+ 457              		.loc 8 36 20 view .LVU102
+ 458              	.LBB353:
+ 459              		.loc 8 36 40 view .LVU103
+ 460              		.loc 8 36 47 is_stmt 0 view .LVU104
+ 461 0000 0C4A     		ldr	r2, .L29
+ 462              		.loc 8 36 56 view .LVU105
+ 463 0002 92F84030 		ldrb	r3, [r2, #64]	@ zero_extendqisi2
+ 464 0006 03B1     		cbz	r3, .L18
+ 465 0008 136E     		ldr	r3, [r2, #96]
+ 466              	.L18:
+ 467              	.LVL17:
+ 468              		.loc 8 36 56 view .LVU106
+ 469              	.LBE353:
+ 470              	.LBE352:
+  66:ExampleProject.cpp **** 
+  67:ExampleProject.cpp **** 	if(color < 0)
+ 471              		.loc 14 67 2 is_stmt 1 view .LVU107
+  65:ExampleProject.cpp **** 
+ 472              		.loc 14 65 10 is_stmt 0 view .LVU108
+ 473 000a 0B49     		ldr	r1, .L29+4
+  65:ExampleProject.cpp **** 
+ 474              		.loc 14 65 16 view .LVU109
+ 475 000c 0868     		ldr	r0, [r1]
+ 476              		.loc 14 67 2 view .LVU110
+ 477 000e 1B18     		adds	r3, r3, r0
+ 478 0010 0DD4     		bmi	.L28
+  68:ExampleProject.cpp **** 	{
+  69:ExampleProject.cpp **** 		color = 3;
+  70:ExampleProject.cpp **** 	}
+  71:ExampleProject.cpp **** 	else if(color > 3)
+ 479              		.loc 14 71 7 is_stmt 1 view .LVU111
+ 480 0012 032B     		cmp	r3, #3
+  72:ExampleProject.cpp **** 	{
+  73:ExampleProject.cpp **** 		color = 0;
+ 481              		.loc 14 73 3 view .LVU112
+ 482              		.loc 14 73 9 is_stmt 0 view .LVU113
+ 483 0014 C8BF     		it	gt
+ 484 0016 0023     		movgt	r3, #0
+ 485 0018 0B60     		str	r3, [r1]
+ 486              	.L20:
+  74:ExampleProject.cpp **** 	}
+  75:ExampleProject.cpp **** 
+  76:ExampleProject.cpp **** 	if(hw.encoder.RisingEdge())
+ 487              		.loc 14 76 2 is_stmt 1 view .LVU114
+ 488              	.LVL18:
+ 489              	.LBB354:
+ 490              	.LBI354:
+  37:../../libDaisy//src/hid/encoder.h **** 
+  38:../../libDaisy//src/hid/encoder.h ****     /** Returns true if the encoder was just pressed. */
+  39:../../libDaisy//src/hid/encoder.h ****     inline bool RisingEdge() const { return sw_.RisingEdge(); }
+ 491              		.loc 8 39 17 view .LVU115
+ 492              	.LBE354:
+ 493              		.loc 8 39 38 view .LVU116
+ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s 			page 22
+
+
+ 494              	.LBB357:
+ 495              	.LBB355:
+ 496              	.LBI355:
+  43:../../libDaisy//src/hid/switch.h **** 
+  44:../../libDaisy//src/hid/switch.h ****     /** 
+  45:../../libDaisy//src/hid/switch.h ****     Initializes the switch object with a given port/pin combo.
+  46:../../libDaisy//src/hid/switch.h ****     \param pin port/pin object to tell the switch which hardware pin to use.
+  47:../../libDaisy//src/hid/switch.h ****     \param update_rate Does nothing. Backwards compatibility until next breaking update.
+  48:../../libDaisy//src/hid/switch.h ****     \param t switch type -- Default: TYPE_MOMENTARY
+  49:../../libDaisy//src/hid/switch.h ****     \param pol switch polarity -- Default: POLARITY_INVERTED
+  50:../../libDaisy//src/hid/switch.h ****     \param pu switch pull up/down -- Default: PULL_UP
+  51:../../libDaisy//src/hid/switch.h ****     */
+  52:../../libDaisy//src/hid/switch.h ****     void
+  53:../../libDaisy//src/hid/switch.h ****     Init(dsy_gpio_pin pin, float update_rate, Type t, Polarity pol, Pull pu);
+  54:../../libDaisy//src/hid/switch.h **** 
+  55:../../libDaisy//src/hid/switch.h ****     /**
+  56:../../libDaisy//src/hid/switch.h ****        Simplified Init.
+  57:../../libDaisy//src/hid/switch.h ****        \param pin port/pin object to tell the switch which hardware pin to use.
+  58:../../libDaisy//src/hid/switch.h ****        \param update_rate Left for backwards compatibility until next breaking change.
+  59:../../libDaisy//src/hid/switch.h ****     */
+  60:../../libDaisy//src/hid/switch.h ****     void Init(dsy_gpio_pin pin, float update_rate = 0.f);
+  61:../../libDaisy//src/hid/switch.h **** 
+  62:../../libDaisy//src/hid/switch.h ****     /** 
+  63:../../libDaisy//src/hid/switch.h ****     Called at update_rate to debounce and handle timing for the switch.
+  64:../../libDaisy//src/hid/switch.h ****     In order for events not to be missed, its important that the Edge/Pressed checks
+  65:../../libDaisy//src/hid/switch.h ****     be made at the same rate as the debounce function is being called.
+  66:../../libDaisy//src/hid/switch.h ****     */
+  67:../../libDaisy//src/hid/switch.h ****     void Debounce();
+  68:../../libDaisy//src/hid/switch.h **** 
+  69:../../libDaisy//src/hid/switch.h ****     /** \return true if a button was just pressed. */
+  70:../../libDaisy//src/hid/switch.h ****     inline bool RisingEdge() const { return updated_ ? state_ == 0x7f : false; }
+ 497              		.loc 7 70 17 view .LVU117
+ 498              	.LBB356:
+ 499              		.loc 7 70 38 view .LVU118
+ 500              		.loc 7 70 54 is_stmt 0 view .LVU119
+ 501 001a 92F84830 		ldrb	r3, [r2, #72]	@ zero_extendqisi2
+ 502 001e 2BB1     		cbz	r3, .L17
+ 503              	.LBE356:
+ 504              	.LBE355:
+ 505              	.LBE357:
+ 506              	.LBB358:
+ 507              	.LBI358:
+  63:ExampleProject.cpp **** {
+ 508              		.loc 14 63 6 is_stmt 1 view .LVU120
+ 509              	.LBB359:
+ 510              		.loc 14 76 2 is_stmt 0 view .LVU121
+ 511 0020 92F84E30 		ldrb	r3, [r2, #78]	@ zero_extendqisi2
+ 512 0024 7F2B     		cmp	r3, #127
+ 513 0026 01D1     		bne	.L17
+  77:ExampleProject.cpp ****     {
+  78:ExampleProject.cpp ****         color = 0;
+ 514              		.loc 14 78 9 is_stmt 1 view .LVU122
+ 515              		.loc 14 78 15 is_stmt 0 view .LVU123
+ 516 0028 0023     		movs	r3, #0
+ 517 002a 0B60     		str	r3, [r1]
+ 518              	.LVL19:
+ 519              	.L17:
+ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s 			page 23
+
+
+ 520              		.loc 14 78 15 view .LVU124
+ 521              	.LBE359:
+ 522              	.LBE358:
+  79:ExampleProject.cpp ****     }
+  80:ExampleProject.cpp **** 
+  81:ExampleProject.cpp **** }
+ 523              		.loc 14 81 1 view .LVU125
+ 524 002c 7047     		bx	lr
+ 525              	.L28:
+  69:ExampleProject.cpp **** 	}
+ 526              		.loc 14 69 3 is_stmt 1 view .LVU126
+  69:ExampleProject.cpp **** 	}
+ 527              		.loc 14 69 9 is_stmt 0 view .LVU127
+ 528 002e 0323     		movs	r3, #3
+ 529 0030 0B60     		str	r3, [r1]
+ 530 0032 F2E7     		b	.L20
+ 531              	.L30:
+ 532              		.align	2
+ 533              	.L29:
+ 534 0034 00000000 		.word	hw
+ 535 0038 00000000 		.word	.LANCHOR3
+ 536              		.cfi_endproc
+ 537              	.LFE4798:
+ 539              		.section	.text._Z11UpdateKnobsv,"ax",%progbits
+ 540              		.align	1
+ 541              		.p2align 2,,3
+ 542              		.global	_Z11UpdateKnobsv
+ 543              		.syntax unified
+ 544              		.thumb
+ 545              		.thumb_func
+ 546              		.fpu fpv5-d16
+ 548              	_Z11UpdateKnobsv:
+ 549              	.LFB4799:
+  82:ExampleProject.cpp **** 
+  83:ExampleProject.cpp **** void UpdateKnobs()
+  84:ExampleProject.cpp **** {
+ 550              		.loc 14 84 1 is_stmt 1 view -0
+ 551              		.cfi_startproc
+ 552              		@ args = 0, pretend = 0, frame = 0
+ 553              		@ frame_needed = 0, uses_anonymous_args = 0
+  85:ExampleProject.cpp **** 	color2 = (int)knob2.Process();
+ 554              		.loc 14 85 2 view .LVU129
+  84:ExampleProject.cpp **** 	color2 = (int)knob2.Process();
+ 555              		.loc 14 84 1 is_stmt 0 view .LVU130
+ 556 0000 08B5     		push	{r3, lr}
+ 557              		.cfi_def_cfa_offset 8
+ 558              		.cfi_offset 3, -8
+ 559              		.cfi_offset 14, -4
+ 560              		.loc 14 85 29 view .LVU131
+ 561 0002 0448     		ldr	r0, .L33
+ 562 0004 FFF7FEFF 		bl	_ZN5daisy9Parameter7ProcessEv
+ 563              	.LVL20:
+ 564              		.loc 14 85 11 view .LVU132
+ 565 0008 BDEEC00A 		vcvt.s32.f32	s0, s0
+ 566              		.loc 14 85 9 view .LVU133
+ 567 000c 024B     		ldr	r3, .L33+4
+ 568              		.loc 14 85 11 view .LVU134
+ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s 			page 24
+
+
+ 569 000e 83ED000A 		vstr.32	s0, [r3]	@ int
+  86:ExampleProject.cpp **** 	
+  87:ExampleProject.cpp **** }
+ 570              		.loc 14 87 1 view .LVU135
+ 571 0012 08BD     		pop	{r3, pc}
+ 572              	.L34:
+ 573              		.align	2
+ 574              	.L33:
+ 575 0014 00000000 		.word	.LANCHOR2
+ 576 0018 00000000 		.word	.LANCHOR4
+ 577              		.cfi_endproc
+ 578              	.LFE4799:
+ 580              		.section	.text._Z10UpdateLedsv,"ax",%progbits
+ 581              		.align	1
+ 582              		.p2align 2,,3
+ 583              		.global	_Z10UpdateLedsv
+ 584              		.syntax unified
+ 585              		.thumb
+ 586              		.thumb_func
+ 587              		.fpu fpv5-d16
+ 589              	_Z10UpdateLedsv:
+ 590              	.LFB4800:
+  88:ExampleProject.cpp **** 
+  89:ExampleProject.cpp **** void UpdateLeds()
+  90:ExampleProject.cpp **** {
+ 591              		.loc 14 90 1 is_stmt 1 view -0
+ 592              		.cfi_startproc
+ 593              		@ args = 0, pretend = 0, frame = 16
+ 594              		@ frame_needed = 0, uses_anonymous_args = 0
+  91:ExampleProject.cpp **** 	hw.led1.SetColor(led1Color[color]);
+ 595              		.loc 14 91 2 view .LVU137
+ 596              		.loc 14 91 34 is_stmt 0 view .LVU138
+ 597 0000 144A     		ldr	r2, .L37
+ 598 0002 154B     		ldr	r3, .L37+4
+ 599 0004 1268     		ldr	r2, [r2]
+ 600 0006 02EB4202 		add	r2, r2, r2, lsl #1
+  90:ExampleProject.cpp **** 	hw.led1.SetColor(led1Color[color]);
+ 601              		.loc 14 90 1 view .LVU139
+ 602 000a 30B5     		push	{r4, r5, lr}
+ 603              		.cfi_def_cfa_offset 12
+ 604              		.cfi_offset 4, -12
+ 605              		.cfi_offset 5, -8
+ 606              		.cfi_offset 14, -4
+ 607              		.loc 14 91 34 view .LVU140
+ 608 000c 03EB8203 		add	r3, r3, r2, lsl #2
+  90:ExampleProject.cpp **** 	hw.led1.SetColor(led1Color[color]);
+ 609              		.loc 14 90 1 view .LVU141
+ 610 0010 85B0     		sub	sp, sp, #20
+ 611              		.cfi_def_cfa_offset 32
+ 612              		.loc 14 91 18 view .LVU142
+ 613 0012 124D     		ldr	r5, .L37+8
+ 614              		.loc 14 91 34 view .LVU143
+ 615 0014 01AC     		add	r4, sp, #4
+ 616 0016 93E80700 		ldm	r3, {r0, r1, r2}
+ 617 001a 84E80700 		stm	r4, {r0, r1, r2}
+ 618              		.loc 14 91 18 view .LVU144
+ 619 001e 2146     		mov	r1, r4
+ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s 			page 25
+
+
+ 620 0020 2846     		mov	r0, r5
+ 621 0022 FFF7FEFF 		bl	_ZN5daisy6RgbLed8SetColorENS_5ColorE
+ 622              	.LVL21:
+ 623              	.LBB360:
+ 624              	.LBI360:
+ 625              		.file 15 "../../libDaisy//src/util/color.h"
+   1:../../libDaisy//src/util/color.h **** /* 
+   2:../../libDaisy//src/util/color.h **** TODO:
+   3:../../libDaisy//src/util/color.h **** - Add Blend(), Scale(), etc.
+   4:../../libDaisy//src/util/color.h **** - I'd also like to change the way the Color names are accessed.
+   5:../../libDaisy//src/util/color.h **** */
+   6:../../libDaisy//src/util/color.h **** /**        I'd like for it to be easy and not `Color::PresetColor::Foo`
+   7:../../libDaisy//src/util/color.h **** */
+   8:../../libDaisy//src/util/color.h **** /** - There's no way to change a color once its been created (without unintuitively reiniting it).
+   9:../../libDaisy//src/util/color.h **** */
+  10:../../libDaisy//src/util/color.h **** #pragma once
+  11:../../libDaisy//src/util/color.h **** #ifndef DSY_COLOR_H
+  12:../../libDaisy//src/util/color.h **** #define DSY_COLOR_H
+  13:../../libDaisy//src/util/color.h **** #include <stdint.h>
+  14:../../libDaisy//src/util/color.h **** 
+  15:../../libDaisy//src/util/color.h **** 
+  16:../../libDaisy//src/util/color.h **** namespace daisy
+  17:../../libDaisy//src/util/color.h **** {
+  18:../../libDaisy//src/util/color.h **** /** @addtogroup utility
+  19:../../libDaisy//src/util/color.h ****     @{
+  20:../../libDaisy//src/util/color.h **** */
+  21:../../libDaisy//src/util/color.h **** 
+  22:../../libDaisy//src/util/color.h **** /** Class for handling simple colors */
+  23:../../libDaisy//src/util/color.h **** class Color
+  24:../../libDaisy//src/util/color.h **** {
+  25:../../libDaisy//src/util/color.h ****   public:
+  26:../../libDaisy//src/util/color.h ****     Color() {}
+  27:../../libDaisy//src/util/color.h ****     ~Color() {}
+ 626              		.loc 15 27 5 is_stmt 1 view .LVU145
+ 627              		.loc 15 27 5 is_stmt 0 view .LVU146
+ 628              	.LBE360:
+  92:ExampleProject.cpp **** 	hw.led2.SetColor(led2Color[color2]);
+ 629              		.loc 14 92 2 is_stmt 1 view .LVU147
+ 630              		.loc 14 92 35 is_stmt 0 view .LVU148
+ 631 0026 0E4A     		ldr	r2, .L37+12
+ 632 0028 0E4B     		ldr	r3, .L37+16
+ 633 002a 1268     		ldr	r2, [r2]
+ 634 002c 02EB4202 		add	r2, r2, r2, lsl #1
+ 635 0030 03EB8203 		add	r3, r3, r2, lsl #2
+ 636 0034 93E80700 		ldm	r3, {r0, r1, r2}
+ 637 0038 84E80700 		stm	r4, {r0, r1, r2}
+ 638              		.loc 14 92 18 view .LVU149
+ 639 003c 05F15400 		add	r0, r5, #84
+ 640 0040 2146     		mov	r1, r4
+ 641 0042 FFF7FEFF 		bl	_ZN5daisy6RgbLed8SetColorENS_5ColorE
+ 642              	.LVL22:
+ 643              	.LBB361:
+ 644              	.LBI361:
+ 645              		.loc 15 27 5 is_stmt 1 view .LVU150
+ 646              		.loc 15 27 5 is_stmt 0 view .LVU151
+ 647              	.LBE361:
+  93:ExampleProject.cpp **** 	hw.UpdateLeds();
+ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s 			page 26
+
+
+ 648              		.loc 14 93 2 is_stmt 1 view .LVU152
+ 649              		.loc 14 93 15 is_stmt 0 view .LVU153
+ 650 0046 A5F1D400 		sub	r0, r5, #212
+  94:ExampleProject.cpp **** }
+ 651              		.loc 14 94 1 view .LVU154
+ 652 004a 05B0     		add	sp, sp, #20
+ 653              		.cfi_def_cfa_offset 12
+ 654              		@ sp needed
+ 655 004c BDE83040 		pop	{r4, r5, lr}
+ 656              		.cfi_restore 14
+ 657              		.cfi_restore 5
+ 658              		.cfi_restore 4
+ 659              		.cfi_def_cfa_offset 0
+  93:ExampleProject.cpp **** 	hw.UpdateLeds();
+ 660              		.loc 14 93 15 view .LVU155
+ 661 0050 FFF7FEBF 		b	_ZN5daisy8DaisyPod10UpdateLedsEv
+ 662              	.LVL23:
+ 663              	.L38:
+ 664              		.align	2
+ 665              	.L37:
+ 666 0054 00000000 		.word	.LANCHOR3
+ 667 0058 00000000 		.word	.LANCHOR0
+ 668 005c D4000000 		.word	hw+212
+ 669 0060 00000000 		.word	.LANCHOR4
+ 670 0064 00000000 		.word	.LANCHOR1
+ 671              		.cfi_endproc
+ 672              	.LFE4800:
+ 674              		.section	.text._Z13AudioCallbackPKPKfPPfj,"ax",%progbits
+ 675              		.align	1
+ 676              		.p2align 2,,3
+ 677              		.global	_Z13AudioCallbackPKPKfPPfj
+ 678              		.syntax unified
+ 679              		.thumb
+ 680              		.thumb_func
+ 681              		.fpu fpv5-d16
+ 683              	_Z13AudioCallbackPKPKfPPfj:
+ 684              	.LVL24:
+ 685              	.LFB4796:
+  35:ExampleProject.cpp **** 	UpdateControls();
+ 686              		.loc 14 35 1 is_stmt 1 view -0
+ 687              		.cfi_startproc
+ 688              		@ args = 0, pretend = 0, frame = 0
+ 689              		@ frame_needed = 0, uses_anonymous_args = 0
+  36:ExampleProject.cpp **** 
+ 690              		.loc 14 36 2 view .LVU157
+ 691              	.LBB369:
+ 692              	.LBI369:
+  95:ExampleProject.cpp **** 
+  96:ExampleProject.cpp **** void UpdateControls()
+ 693              		.loc 14 96 6 view .LVU158
+ 694              	.LBB370:
+  97:ExampleProject.cpp **** {
+  98:ExampleProject.cpp **** 	hw.ProcessAnalogControls();
+ 695              		.loc 14 98 2 view .LVU159
+ 696              	.LBE370:
+ 697              	.LBE369:
+  35:ExampleProject.cpp **** 	UpdateControls();
+ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s 			page 27
+
+
+ 698              		.loc 14 35 1 is_stmt 0 view .LVU160
+ 699 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 700              		.cfi_def_cfa_offset 24
+ 701              		.cfi_offset 3, -24
+ 702              		.cfi_offset 4, -20
+ 703              		.cfi_offset 5, -16
+ 704              		.cfi_offset 6, -12
+ 705              		.cfi_offset 7, -8
+ 706              		.cfi_offset 14, -4
+  35:ExampleProject.cpp **** 	UpdateControls();
+ 707              		.loc 14 35 1 view .LVU161
+ 708 0002 0746     		mov	r7, r0
+ 709              	.LBB375:
+ 710              	.LBB373:
+ 711              		.loc 14 98 26 view .LVU162
+ 712 0004 1548     		ldr	r0, .L47
+ 713              	.LVL25:
+ 714              		.loc 14 98 26 view .LVU163
+ 715              	.LBE373:
+ 716              	.LBE375:
+  35:ExampleProject.cpp **** 	UpdateControls();
+ 717              		.loc 14 35 1 view .LVU164
+ 718 0006 1546     		mov	r5, r2
+ 719 0008 0E46     		mov	r6, r1
+ 720              	.LBB376:
+ 721              	.LBB374:
+ 722              		.loc 14 98 26 view .LVU165
+ 723 000a FFF7FEFF 		bl	_ZN5daisy8DaisyPod21ProcessAnalogControlsEv
+ 724              	.LVL26:
+  99:ExampleProject.cpp ****     hw.ProcessDigitalControls();
+ 725              		.loc 14 99 5 is_stmt 1 view .LVU166
+ 726              		.loc 14 99 30 is_stmt 0 view .LVU167
+ 727 000e 1348     		ldr	r0, .L47
+ 728 0010 FFF7FEFF 		bl	_ZN5daisy8DaisyPod22ProcessDigitalControlsEv
+ 729              	.LVL27:
+ 100:ExampleProject.cpp **** 
+ 101:ExampleProject.cpp **** 
+ 102:ExampleProject.cpp **** 
+ 103:ExampleProject.cpp ****     UpdateEncoder();
+ 730              		.loc 14 103 5 is_stmt 1 view .LVU168
+ 731              		.loc 14 103 18 is_stmt 0 view .LVU169
+ 732 0014 FFF7FEFF 		bl	_Z13UpdateEncoderv
+ 733              	.LVL28:
+ 104:ExampleProject.cpp ****     UpdateKnobs();
+ 734              		.loc 14 104 5 is_stmt 1 view .LVU170
+ 735              	.LBB371:
+ 736              	.LBI371:
+  83:ExampleProject.cpp **** {
+ 737              		.loc 14 83 6 view .LVU171
+ 738              	.LBB372:
+  85:ExampleProject.cpp **** 	
+ 739              		.loc 14 85 2 view .LVU172
+  85:ExampleProject.cpp **** 	
+ 740              		.loc 14 85 29 is_stmt 0 view .LVU173
+ 741 0018 1148     		ldr	r0, .L47+4
+ 742 001a FFF7FEFF 		bl	_ZN5daisy9Parameter7ProcessEv
+ 743              	.LVL29:
+ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s 			page 28
+
+
+  85:ExampleProject.cpp **** 	
+ 744              		.loc 14 85 11 view .LVU174
+ 745 001e BDEEC00A 		vcvt.s32.f32	s0, s0
+  85:ExampleProject.cpp **** 	
+ 746              		.loc 14 85 9 view .LVU175
+ 747 0022 104B     		ldr	r3, .L47+8
+  85:ExampleProject.cpp **** 	
+ 748              		.loc 14 85 11 view .LVU176
+ 749 0024 83ED000A 		vstr.32	s0, [r3]	@ int
+ 750              	.LBE372:
+ 751              	.LBE371:
+ 105:ExampleProject.cpp ****     UpdateLeds();
+ 752              		.loc 14 105 5 is_stmt 1 view .LVU177
+ 753              		.loc 14 105 15 is_stmt 0 view .LVU178
+ 754 0028 FFF7FEFF 		bl	_Z10UpdateLedsv
+ 755              	.LVL30:
+ 756              	.LBE374:
+ 757              	.LBE376:
+  38:ExampleProject.cpp **** 	for (size_t i = 0; i < size; i++)
+ 758              		.loc 14 38 2 is_stmt 1 view .LVU179
+ 759              	.LBB377:
+ 760              	.LBI377:
   37:../../libDaisy//src/daisy_pod.h **** 
   38:../../libDaisy//src/daisy_pod.h ****     /** Init related stuff. */
   39:../../libDaisy//src/daisy_pod.h ****     void Init(bool boost = false);
@@ -838,7 +1678,7 @@ ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 1
   69:../../libDaisy//src/daisy_pod.h ****     void StopAudio();
   70:../../libDaisy//src/daisy_pod.h **** 
   71:../../libDaisy//src/daisy_pod.h ****     /** Updates the Audio Sample Rate, and reinitializes.
-ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 15
+ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s 			page 29
 
 
   72:../../libDaisy//src/daisy_pod.h ****      ** Audio must be stopped for this to work.
@@ -872,251 +1712,202 @@ ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 1
  100:../../libDaisy//src/daisy_pod.h **** 
  101:../../libDaisy//src/daisy_pod.h ****     /** Process Analog and Digital Controls */
  102:../../libDaisy//src/daisy_pod.h ****     inline void ProcessAllControls()
- 173              		.loc 1 102 17 view .LVU41
- 174              	.LBB286:
+ 761              		.loc 3 102 17 view .LVU180
+ 762              	.LBB378:
  103:../../libDaisy//src/daisy_pod.h ****     {
  104:../../libDaisy//src/daisy_pod.h ****         ProcessAnalogControls();
- 175              		.loc 1 104 9 view .LVU42
- 176              	.LBE286:
- 177              	.LBE285:
-  10:ExampleProject.cpp **** 	hw.ProcessAllControls();
- 178              		.loc 13 10 1 is_stmt 0 view .LVU43
- 179 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
- 180              		.cfi_def_cfa_offset 24
- 181              		.cfi_offset 3, -24
- 182              		.cfi_offset 4, -20
- 183              		.cfi_offset 5, -16
- 184              		.cfi_offset 6, -12
- 185              		.cfi_offset 7, -8
- 186              		.cfi_offset 14, -4
-  10:ExampleProject.cpp **** 	hw.ProcessAllControls();
- 187              		.loc 13 10 1 view .LVU44
- 188 0002 1546     		mov	r5, r2
- 189 0004 0746     		mov	r7, r0
- 190              	.LBB289:
- 191              	.LBB287:
- 192              		.loc 1 104 30 view .LVU45
- 193 0006 0C48     		ldr	r0, .L11
- 194              	.LVL2:
-ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 16
-
-
- 195              		.loc 1 104 30 view .LVU46
- 196              	.LBE287:
- 197              	.LBE289:
-  10:ExampleProject.cpp **** 	hw.ProcessAllControls();
- 198              		.loc 13 10 1 view .LVU47
- 199 0008 0E46     		mov	r6, r1
- 200              	.LBB290:
- 201              	.LBB288:
- 202              		.loc 1 104 30 view .LVU48
- 203 000a FFF7FEFF 		bl	_ZN5daisy8DaisyPod21ProcessAnalogControlsEv
- 204              	.LVL3:
+ 763              		.loc 3 104 9 view .LVU181
+ 764              		.loc 3 104 30 is_stmt 0 view .LVU182
+ 765 002c 0B48     		ldr	r0, .L47
+ 766 002e FFF7FEFF 		bl	_ZN5daisy8DaisyPod21ProcessAnalogControlsEv
+ 767              	.LVL31:
  105:../../libDaisy//src/daisy_pod.h ****         ProcessDigitalControls();
- 205              		.loc 1 105 9 is_stmt 1 view .LVU49
- 206              		.loc 1 105 31 is_stmt 0 view .LVU50
- 207 000e 0A48     		ldr	r0, .L11
- 208 0010 FFF7FEFF 		bl	_ZN5daisy8DaisyPod22ProcessDigitalControlsEv
- 209              	.LVL4:
- 210              		.loc 1 105 31 view .LVU51
- 211              	.LBE288:
- 212              	.LBE290:
-  12:ExampleProject.cpp **** 	for (size_t i = 0; i < size; i++)
- 213              		.loc 13 12 2 is_stmt 1 view .LVU52
- 214              	.LBB291:
- 215              		.loc 13 12 23 view .LVU53
- 216 0014 7DB1     		cbz	r5, .L3
- 217 0016 3B68     		ldr	r3, [r7]
- 218 0018 3468     		ldr	r4, [r6]
- 219 001a 7868     		ldr	r0, [r7, #4]
- 220 001c 03EB850C 		add	ip, r3, r5, lsl #2
- 221 0020 7168     		ldr	r1, [r6, #4]
- 222              	.LVL5:
- 223              	.L5:
-  13:ExampleProject.cpp **** 	{
-  14:ExampleProject.cpp **** 		out[0][i] = in[0][i];
- 224              		.loc 13 14 3 discriminator 2 view .LVU54
- 225              		.loc 13 14 22 is_stmt 0 discriminator 2 view .LVU55
- 226 0022 53F8042B 		ldr	r2, [r3], #4	@ float
- 227              		.loc 13 14 13 discriminator 2 view .LVU56
- 228 0026 44F8042B 		str	r2, [r4], #4	@ float
-  15:ExampleProject.cpp **** 		out[1][i] = in[1][i];
- 229              		.loc 13 15 3 is_stmt 1 discriminator 2 view .LVU57
-  12:ExampleProject.cpp **** 	for (size_t i = 0; i < size; i++)
- 230              		.loc 13 12 23 is_stmt 0 discriminator 2 view .LVU58
- 231 002a 6345     		cmp	r3, ip
- 232              		.loc 13 15 22 discriminator 2 view .LVU59
- 233 002c 50F8042B 		ldr	r2, [r0], #4	@ float
- 234              		.loc 13 15 13 discriminator 2 view .LVU60
- 235 0030 41F8042B 		str	r2, [r1], #4	@ float
-  12:ExampleProject.cpp **** 	for (size_t i = 0; i < size; i++)
- 236              		.loc 13 12 2 is_stmt 1 discriminator 2 view .LVU61
-  12:ExampleProject.cpp **** 	for (size_t i = 0; i < size; i++)
- 237              		.loc 13 12 23 discriminator 2 view .LVU62
- 238 0034 F5D1     		bne	.L5
- 239              	.L3:
- 240              	.LBE291:
-  16:ExampleProject.cpp **** 	}
-  17:ExampleProject.cpp **** }
-ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 17
+ 768              		.loc 3 105 9 is_stmt 1 view .LVU183
+ 769              		.loc 3 105 31 is_stmt 0 view .LVU184
+ 770 0032 0A48     		ldr	r0, .L47
+ 771 0034 FFF7FEFF 		bl	_ZN5daisy8DaisyPod22ProcessDigitalControlsEv
+ 772              	.LVL32:
+ 773              		.loc 3 105 31 view .LVU185
+ 774              	.LBE378:
+ 775              	.LBE377:
+  39:ExampleProject.cpp **** 	{
+ 776              		.loc 14 39 2 is_stmt 1 view .LVU186
+ 777              	.LBB379:
+  39:ExampleProject.cpp **** 	{
+ 778              		.loc 14 39 23 view .LVU187
+ 779 0038 7DB1     		cbz	r5, .L39
+ 780 003a 3B68     		ldr	r3, [r7]
+ 781 003c 3468     		ldr	r4, [r6]
+ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s 			page 30
 
 
- 241              		.loc 13 17 1 is_stmt 0 view .LVU63
- 242 0036 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
- 243              	.LVL6:
- 244              	.L12:
- 245              		.loc 13 17 1 view .LVU64
- 246              		.align	2
- 247              	.L11:
- 248 0038 00000000 		.word	hw
- 249              		.cfi_endproc
- 250              	.LFE4795:
- 252              		.section	.text.startup.main,"ax",%progbits
- 253              		.align	1
- 254              		.p2align 2,,3
- 255              		.global	main
- 256              		.syntax unified
- 257              		.thumb
- 258              		.thumb_func
- 259              		.fpu fpv5-d16
- 261              	main:
- 262              	.LFB4796:
-  18:ExampleProject.cpp **** 
-  19:ExampleProject.cpp **** int main(void)
-  20:ExampleProject.cpp **** {
- 263              		.loc 13 20 1 is_stmt 1 view -0
- 264              		.cfi_startproc
- 265              		@ args = 0, pretend = 0, frame = 0
- 266              		@ frame_needed = 0, uses_anonymous_args = 0
-  21:ExampleProject.cpp **** 	hw.Init();
- 267              		.loc 13 21 2 view .LVU66
-  20:ExampleProject.cpp **** 	hw.Init();
- 268              		.loc 13 20 1 is_stmt 0 view .LVU67
- 269 0000 10B5     		push	{r4, lr}
- 270              		.cfi_def_cfa_offset 8
- 271              		.cfi_offset 4, -8
- 272              		.cfi_offset 14, -4
- 273              		.loc 13 21 9 view .LVU68
- 274 0002 0021     		movs	r1, #0
- 275 0004 0F48     		ldr	r0, .L16
- 276 0006 FFF7FEFF 		bl	_ZN5daisy8DaisyPod4InitEb
- 277              	.LVL7:
-  22:ExampleProject.cpp **** 	hw.SetAudioBlockSize(4); // number of samples handled per callback
- 278              		.loc 13 22 2 is_stmt 1 view .LVU69
- 279              		.loc 13 22 22 is_stmt 0 view .LVU70
- 280 000a 0421     		movs	r1, #4
- 281 000c 0D48     		ldr	r0, .L16
-  23:ExampleProject.cpp **** 	hw.SetAudioSampleRate(SaiHandle::Config::SampleRate::SAI_48KHZ);
-  24:ExampleProject.cpp **** 	hw.StartAdc();
-  25:ExampleProject.cpp **** 	hw.StartAudio(AudioCallback);
-  26:ExampleProject.cpp **** 
-  27:ExampleProject.cpp **** 
-  28:ExampleProject.cpp **** 	bool led_state = true;
- 282              		.loc 13 28 7 view .LVU71
- 283 000e 0124     		movs	r4, #1
-  22:ExampleProject.cpp **** 	hw.SetAudioBlockSize(4); // number of samples handled per callback
- 284              		.loc 13 22 22 view .LVU72
- 285 0010 FFF7FEFF 		bl	_ZN5daisy8DaisyPod17SetAudioBlockSizeEj
- 286              	.LVL8:
-ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 18
+ 782 003e 7868     		ldr	r0, [r7, #4]
+ 783 0040 03EB850C 		add	ip, r3, r5, lsl #2
+ 784 0044 7168     		ldr	r1, [r6, #4]
+ 785              	.LVL33:
+ 786              	.L41:
+  41:ExampleProject.cpp **** 		out[1][i] = in[1][i];
+ 787              		.loc 14 41 3 discriminator 2 view .LVU188
+  41:ExampleProject.cpp **** 		out[1][i] = in[1][i];
+ 788              		.loc 14 41 22 is_stmt 0 discriminator 2 view .LVU189
+ 789 0046 53F8042B 		ldr	r2, [r3], #4	@ float
+  41:ExampleProject.cpp **** 		out[1][i] = in[1][i];
+ 790              		.loc 14 41 13 discriminator 2 view .LVU190
+ 791 004a 44F8042B 		str	r2, [r4], #4	@ float
+  42:ExampleProject.cpp **** 	}
+ 792              		.loc 14 42 3 is_stmt 1 discriminator 2 view .LVU191
+  39:ExampleProject.cpp **** 	{
+ 793              		.loc 14 39 23 is_stmt 0 discriminator 2 view .LVU192
+ 794 004e 6345     		cmp	r3, ip
+  42:ExampleProject.cpp **** 	}
+ 795              		.loc 14 42 22 discriminator 2 view .LVU193
+ 796 0050 50F8042B 		ldr	r2, [r0], #4	@ float
+  42:ExampleProject.cpp **** 	}
+ 797              		.loc 14 42 13 discriminator 2 view .LVU194
+ 798 0054 41F8042B 		str	r2, [r1], #4	@ float
+  39:ExampleProject.cpp **** 	{
+ 799              		.loc 14 39 2 is_stmt 1 discriminator 2 view .LVU195
+  39:ExampleProject.cpp **** 	{
+ 800              		.loc 14 39 23 discriminator 2 view .LVU196
+ 801 0058 F5D1     		bne	.L41
+ 802              	.L39:
+ 803              	.LBE379:
+  44:ExampleProject.cpp **** 
+ 804              		.loc 14 44 1 is_stmt 0 view .LVU197
+ 805 005a F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 806              	.LVL34:
+ 807              	.L48:
+  44:ExampleProject.cpp **** 
+ 808              		.loc 14 44 1 view .LVU198
+ 809              		.align	2
+ 810              	.L47:
+ 811 005c 00000000 		.word	hw
+ 812 0060 00000000 		.word	.LANCHOR2
+ 813 0064 00000000 		.word	.LANCHOR4
+ 814              		.cfi_endproc
+ 815              	.LFE4796:
+ 817              		.section	.text._Z14UpdateControlsv,"ax",%progbits
+ 818              		.align	1
+ 819              		.p2align 2,,3
+ 820              		.global	_Z14UpdateControlsv
+ 821              		.syntax unified
+ 822              		.thumb
+ 823              		.thumb_func
+ 824              		.fpu fpv5-d16
+ 826              	_Z14UpdateControlsv:
+ 827              	.LFB4801:
+  97:ExampleProject.cpp **** 	hw.ProcessAnalogControls();
+ 828              		.loc 14 97 1 is_stmt 1 view -0
+ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s 			page 31
 
 
-  23:ExampleProject.cpp **** 	hw.SetAudioSampleRate(SaiHandle::Config::SampleRate::SAI_48KHZ);
- 287              		.loc 13 23 2 is_stmt 1 view .LVU73
-  23:ExampleProject.cpp **** 	hw.SetAudioSampleRate(SaiHandle::Config::SampleRate::SAI_48KHZ);
- 288              		.loc 13 23 23 is_stmt 0 view .LVU74
- 289 0014 0321     		movs	r1, #3
- 290 0016 0B48     		ldr	r0, .L16
- 291 0018 FFF7FEFF 		bl	_ZN5daisy8DaisyPod18SetAudioSampleRateENS_9SaiHandle6Config10SampleRateE
- 292              	.LVL9:
-  24:ExampleProject.cpp **** 	hw.StartAudio(AudioCallback);
- 293              		.loc 13 24 2 is_stmt 1 view .LVU75
-  24:ExampleProject.cpp **** 	hw.StartAudio(AudioCallback);
- 294              		.loc 13 24 13 is_stmt 0 view .LVU76
- 295 001c 0948     		ldr	r0, .L16
- 296 001e FFF7FEFF 		bl	_ZN5daisy8DaisyPod8StartAdcEv
- 297              	.LVL10:
-  25:ExampleProject.cpp **** 
- 298              		.loc 13 25 2 is_stmt 1 view .LVU77
-  25:ExampleProject.cpp **** 
- 299              		.loc 13 25 15 is_stmt 0 view .LVU78
- 300 0022 0949     		ldr	r1, .L16+4
- 301 0024 0748     		ldr	r0, .L16
- 302 0026 FFF7FEFF 		bl	_ZN5daisy8DaisyPod10StartAudioEPFvPKPKfPPfjE
- 303              	.LVL11:
- 304              		.loc 13 28 2 is_stmt 1 view .LVU79
- 305              	.L14:
-  29:ExampleProject.cpp **** 
-  30:ExampleProject.cpp **** 	while(1)
- 306              		.loc 13 30 2 discriminator 1 view .LVU80
-  31:ExampleProject.cpp **** 	{
-  32:ExampleProject.cpp **** 		hw.seed.SetLed(led_state);
- 307              		.loc 13 32 3 discriminator 1 view .LVU81
- 308              		.loc 13 32 17 is_stmt 0 discriminator 1 view .LVU82
- 309 002a 2146     		mov	r1, r4
- 310 002c 0548     		ldr	r0, .L16
- 311 002e FFF7FEFF 		bl	_ZN5daisy9DaisySeed6SetLedEb
- 312              	.LVL12:
-  33:ExampleProject.cpp **** 		hw.DelayMs(500);
- 313              		.loc 13 33 3 is_stmt 1 discriminator 1 view .LVU83
- 314              		.loc 13 33 13 is_stmt 0 discriminator 1 view .LVU84
- 315 0032 4FF4FA71 		mov	r1, #500
- 316 0036 0348     		ldr	r0, .L16
-  34:ExampleProject.cpp **** 		led_state = !led_state;
- 317              		.loc 13 34 13 discriminator 1 view .LVU85
- 318 0038 84F00104 		eor	r4, r4, #1
- 319              	.LVL13:
-  33:ExampleProject.cpp **** 		hw.DelayMs(500);
- 320              		.loc 13 33 13 discriminator 1 view .LVU86
- 321 003c FFF7FEFF 		bl	_ZN5daisy8DaisyPod7DelayMsEj
- 322              	.LVL14:
- 323              		.loc 13 34 3 is_stmt 1 discriminator 1 view .LVU87
-  30:ExampleProject.cpp **** 	{
- 324              		.loc 13 30 2 discriminator 1 view .LVU88
- 325 0040 F3E7     		b	.L14
- 326              	.L17:
- 327 0042 00BF     		.align	2
- 328              	.L16:
- 329 0044 00000000 		.word	hw
-ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 19
+ 829              		.cfi_startproc
+ 830              		@ args = 0, pretend = 0, frame = 0
+ 831              		@ frame_needed = 0, uses_anonymous_args = 0
+  98:ExampleProject.cpp ****     hw.ProcessDigitalControls();
+ 832              		.loc 14 98 2 view .LVU200
+  97:ExampleProject.cpp **** 	hw.ProcessAnalogControls();
+ 833              		.loc 14 97 1 is_stmt 0 view .LVU201
+ 834 0000 08B5     		push	{r3, lr}
+ 835              		.cfi_def_cfa_offset 8
+ 836              		.cfi_offset 3, -8
+ 837              		.cfi_offset 14, -4
+  98:ExampleProject.cpp ****     hw.ProcessDigitalControls();
+ 838              		.loc 14 98 26 view .LVU202
+ 839 0002 0A48     		ldr	r0, .L51
+ 840 0004 FFF7FEFF 		bl	_ZN5daisy8DaisyPod21ProcessAnalogControlsEv
+ 841              	.LVL35:
+  99:ExampleProject.cpp **** 
+ 842              		.loc 14 99 5 is_stmt 1 view .LVU203
+  99:ExampleProject.cpp **** 
+ 843              		.loc 14 99 30 is_stmt 0 view .LVU204
+ 844 0008 0848     		ldr	r0, .L51
+ 845 000a FFF7FEFF 		bl	_ZN5daisy8DaisyPod22ProcessDigitalControlsEv
+ 846              	.LVL36:
+ 103:ExampleProject.cpp ****     UpdateKnobs();
+ 847              		.loc 14 103 5 is_stmt 1 view .LVU205
+ 103:ExampleProject.cpp ****     UpdateKnobs();
+ 848              		.loc 14 103 18 is_stmt 0 view .LVU206
+ 849 000e FFF7FEFF 		bl	_Z13UpdateEncoderv
+ 850              	.LVL37:
+ 104:ExampleProject.cpp ****     UpdateLeds();
+ 851              		.loc 14 104 5 is_stmt 1 view .LVU207
+ 852              	.LBB382:
+ 853              	.LBI382:
+  83:ExampleProject.cpp **** {
+ 854              		.loc 14 83 6 view .LVU208
+ 855              	.LBB383:
+  85:ExampleProject.cpp **** 	
+ 856              		.loc 14 85 2 view .LVU209
+  85:ExampleProject.cpp **** 	
+ 857              		.loc 14 85 29 is_stmt 0 view .LVU210
+ 858 0012 0748     		ldr	r0, .L51+4
+ 859 0014 FFF7FEFF 		bl	_ZN5daisy9Parameter7ProcessEv
+ 860              	.LVL38:
+  85:ExampleProject.cpp **** 	
+ 861              		.loc 14 85 11 view .LVU211
+ 862 0018 BDEEC00A 		vcvt.s32.f32	s0, s0
+  85:ExampleProject.cpp **** 	
+ 863              		.loc 14 85 9 view .LVU212
+ 864 001c 054B     		ldr	r3, .L51+8
+  85:ExampleProject.cpp **** 	
+ 865              		.loc 14 85 11 view .LVU213
+ 866 001e 83ED000A 		vstr.32	s0, [r3]	@ int
+ 867              	.LBE383:
+ 868              	.LBE382:
+ 869              		.loc 14 105 5 is_stmt 1 view .LVU214
+ 106:ExampleProject.cpp **** }...
+ 870              		.loc 14 106 1 is_stmt 0 view .LVU215
+ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s 			page 32
 
 
- 330 0048 00000000 		.word	_Z13AudioCallbackPKPKfPPfj
- 331              		.cfi_endproc
- 332              	.LFE4796:
- 334              		.section	.text.startup._GLOBAL__sub_I_hw,"ax",%progbits
- 335              		.align	1
- 336              		.p2align 2,,3
- 337              		.syntax unified
- 338              		.thumb
- 339              		.thumb_func
- 340              		.fpu fpv5-d16
- 342              	_GLOBAL__sub_I_hw:
- 343              	.LFB5368:
-  35:ExampleProject.cpp **** 	}
-  36:ExampleProject.cpp **** }
- 344              		.loc 13 36 1 view -0
- 345              		.cfi_startproc
- 346              		@ args = 0, pretend = 0, frame = 0
- 347              		@ frame_needed = 0, uses_anonymous_args = 0
- 348              	.LBB357:
- 349              	.LBI357:
- 350              		.loc 13 36 1 view .LVU90
- 351              	.LVL15:
- 352              	.LBB358:
- 353              	.LBB359:
- 354              	.LBI359:
+ 871 0022 BDE80840 		pop	{r3, lr}
+ 872              		.cfi_restore 14
+ 873              		.cfi_restore 3
+ 874              		.cfi_def_cfa_offset 0
+ 105:ExampleProject.cpp ****     UpdateLeds();
+ 875              		.loc 14 105 15 view .LVU216
+ 876 0026 FFF7FEBF 		b	_Z10UpdateLedsv
+ 877              	.LVL39:
+ 878              	.L52:
+ 879 002a 00BF     		.align	2
+ 880              	.L51:
+ 881 002c 00000000 		.word	hw
+ 882 0030 00000000 		.word	.LANCHOR2
+ 883 0034 00000000 		.word	.LANCHOR4
+ 884              		.cfi_endproc
+ 885              	.LFE4801:
+ 887              		.section	.text.startup._GLOBAL__sub_I_hw,"ax",%progbits
+ 888              		.align	1
+ 889              		.p2align 2,,3
+ 890              		.syntax unified
+ 891              		.thumb
+ 892              		.thumb_func
+ 893              		.fpu fpv5-d16
+ 895              	_GLOBAL__sub_I_hw:
+ 896              	.LFB5375:
+ 897              		.loc 14 106 1 is_stmt 1 view -0
+ 898              		.cfi_startproc
+ 899              		@ args = 0, pretend = 0, frame = 0
+ 900              		@ frame_needed = 0, uses_anonymous_args = 0
+ 901              	.LBB455:
+ 902              	.LBI455:
+ 903              		.loc 14 106 1 view .LVU218
+ 904              	.LVL40:
+ 905              	.LBB456:
+ 906              	.LBB457:
+ 907              	.LBI457:
   35:../../libDaisy//src/daisy_pod.h ****     ~DaisyPod() {}
- 355              		.loc 1 35 5 view .LVU91
- 356              	.LBB360:
- 357              	.LBB361:
- 358              	.LBI361:
+ 908              		.loc 3 35 5 view .LVU219
+ 909              	.LBB458:
+ 910              	.LBB459:
+ 911              	.LBI459:
   21:../../libDaisy//src/daisy_seed.h ****     ~DaisySeed() {}
- 359              		.loc 8 21 5 view .LVU92
- 360              	.LBB362:
- 361              	.LBB363:
- 362              	.LBI363:
- 363              		.file 14 "../../libDaisy//src/per/qspi.h"
+ 912              		.loc 9 21 5 view .LVU220
+ 913              	.LBB460:
+ 914              	.LBB461:
+ 915              	.LBI461:
+ 916              		.file 16 "../../libDaisy//src/per/qspi.h"
    1:../../libDaisy//src/per/qspi.h **** #ifndef DSY_QSPI
    2:../../libDaisy//src/per/qspi.h **** #define DSY_QSPI /**< Macro */
    3:../../libDaisy//src/per/qspi.h **** 
@@ -1127,6 +1918,9 @@ ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 1
    8:../../libDaisy//src/per/qspi.h **** 
    9:../../libDaisy//src/per/qspi.h **** #define DSY_QSPI_TEXT       \
   10:../../libDaisy//src/per/qspi.h ****     __attribute__((section( \
+ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s 			page 33
+
+
   11:../../libDaisy//src/per/qspi.h ****         ".qspiflash_text"))) /**< used for reading memory in memory_mapped mode. */
   12:../../libDaisy//src/per/qspi.h **** #define DSY_QSPI_DATA       \
   13:../../libDaisy//src/per/qspi.h ****     __attribute__((section( \
@@ -1138,9 +1932,6 @@ ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 1
   19:../../libDaisy//src/per/qspi.h **** namespace daisy
   20:../../libDaisy//src/per/qspi.h **** {
   21:../../libDaisy//src/per/qspi.h **** /** @addtogroup serial
-ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 20
-
-
   22:../../libDaisy//src/per/qspi.h **** @{
   23:../../libDaisy//src/per/qspi.h **** */
   24:../../libDaisy//src/per/qspi.h **** 
@@ -1187,6 +1978,9 @@ ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 1
   65:../../libDaisy//src/per/qspi.h ****         };
   66:../../libDaisy//src/per/qspi.h **** 
   67:../../libDaisy//src/per/qspi.h ****         /** 
+ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s 			page 34
+
+
   68:../../libDaisy//src/per/qspi.h ****         Modes of operation.
   69:../../libDaisy//src/per/qspi.h ****         Memory Mapped mode: QSPI configured so that the QSPI can be
   70:../../libDaisy//src/per/qspi.h ****         read from starting address 0x90000000. Writing is not
@@ -1198,9 +1992,6 @@ ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 1
   76:../../libDaisy//src/per/qspi.h ****             MEMORY_MAPPED,    /**< & */
   77:../../libDaisy//src/per/qspi.h ****             INDIRECT_POLLING, /**< & */
   78:../../libDaisy//src/per/qspi.h ****             MODE_LAST,
-ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 21
-
-
   79:../../libDaisy//src/per/qspi.h ****         };
   80:../../libDaisy//src/per/qspi.h **** 
   81:../../libDaisy//src/per/qspi.h ****         //SCK,  CE# (active low)
@@ -1247,6 +2038,9 @@ ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 1
  122:../../libDaisy//src/per/qspi.h ****         */
  123:../../libDaisy//src/per/qspi.h ****     Result WritePage(uint32_t address, uint32_t size, uint8_t* buffer);
  124:../../libDaisy//src/per/qspi.h **** 
+ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s 			page 35
+
+
  125:../../libDaisy//src/per/qspi.h ****     /** 
  126:../../libDaisy//src/per/qspi.h ****         Writes data in buffer to to the QSPI. Starting at address to address+size 
  127:../../libDaisy//src/per/qspi.h ****         \param address Address to write to
@@ -1258,9 +2052,6 @@ ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 1
  133:../../libDaisy//src/per/qspi.h **** 
  134:../../libDaisy//src/per/qspi.h ****     /** 
  135:../../libDaisy//src/per/qspi.h ****         Erases the area specified on the chip.
-ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 22
-
-
  136:../../libDaisy//src/per/qspi.h ****         Erasures will happen by 4K, 32K or 64K increments.
  137:../../libDaisy//src/per/qspi.h ****         Smallest erase possible is 4kB at a time. (on IS25LP*)
  138:../../libDaisy//src/per/qspi.h ****         \param start_addr Address to begin erasing from
@@ -1292,128 +2083,324 @@ ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 1
  164:../../libDaisy//src/per/qspi.h ****     void* GetData(uint32_t offset = 0);
  165:../../libDaisy//src/per/qspi.h **** 
  166:../../libDaisy//src/per/qspi.h ****     QSPIHandle() : pimpl_(nullptr) {}
- 364              		.loc 14 166 5 view .LVU93
- 365              	.LBB364:
- 366              	.LBB365:
- 367              		.loc 14 166 34 is_stmt 0 view .LVU94
- 368 0000 1348     		ldr	r0, .L20
- 369 0002 0022     		movs	r2, #0
- 370              	.LBE365:
- 371              	.LBE364:
- 372              	.LBE363:
- 373              	.LBE362:
- 374              	.LBE361:
- 375              	.LBB381:
- 376              	.LBB382:
- 377              	.LBB383:
- 378              	.LBB384:
- 379              	.LBB385:
- 380              	.LBB386:
- 381              	.LBB387:
+ 917              		.loc 16 166 5 view .LVU221
+ 918              	.LBB462:
+ 919              	.LBB463:
+ 920              		.loc 16 166 34 is_stmt 0 view .LVU222
+ 921 0000 1A48     		ldr	r0, .L55
+ 922              	.LBE463:
+ 923              	.LBE462:
+ 924              	.LBE461:
+ 925              	.LBE460:
+ 926              	.LBE459:
+ 927              	.LBB483:
+ 928              	.LBB484:
+ 929              	.LBB485:
+ 930              	.LBB486:
+ 931              	.LBB487:
+ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s 			page 36
+
+
+ 932              	.LBB488:
+ 933              	.LBB489:
   37:../../libDaisy//src/hid/midi.h ****             tx     = {DSY_GPIOB, 6};
- 382              		.loc 2 37 20 view .LVU95
- 383 0004 1349     		ldr	r1, .L20+4
+ 934              		.loc 4 37 20 view .LVU223
+ 935 0002 1B49     		ldr	r1, .L55+4
   36:../../libDaisy//src/hid/midi.h ****             rx     = {DSY_GPIOB, 7};
- 384              		.loc 2 36 20 view .LVU96
- 385 0006 00F51043 		add	r3, r0, #36864
-  38:../../libDaisy//src/hid/midi.h ****         }
- 386              		.loc 2 38 20 view .LVU97
-ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 23
-
-
- 387 000a B1F804C0 		ldrh	ip, [r1, #4]
- 388              	.LBE387:
- 389              	.LBE386:
- 390              	.LBE385:
- 391              	.LBE384:
- 392              	.LBE383:
- 393              	.LBE382:
- 394              	.LBE381:
- 395              	.LBE360:
- 396              	.LBE359:
- 397              	.LBE358:
- 398              	.LBE357:
- 399              		.loc 13 36 1 view .LVU98
- 400 000e 00B5     		push	{lr}
- 401              		.cfi_def_cfa_offset 4
- 402              		.cfi_offset 14, -4
- 403              	.LBB442:
- 404              	.LBB440:
- 405              	.LBB439:
- 406              	.LBB438:
- 407              	.LBB416:
- 408              	.LBB413:
- 409              	.LBB410:
- 410              	.LBB397:
- 411              	.LBB394:
- 412              	.LBB391:
- 413              	.LBB388:
+ 936              		.loc 4 36 20 view .LVU224
+ 937 0004 00F51043 		add	r3, r0, #36864
+ 938              	.LBE489:
+ 939              	.LBE488:
+ 940              	.LBE487:
+ 941              	.LBE486:
+ 942              	.LBE485:
+ 943              	.LBE484:
+ 944              	.LBE483:
+ 945              	.LBE458:
+ 946              	.LBE457:
+   7:ExampleProject.cpp **** DaisyPod hw;
+ 947              		.loc 14 7 10 view .LVU225
+ 948 0008 1A4A     		ldr	r2, .L55+8
+ 949              	.LBB555:
+ 950              	.LBB552:
+ 951              	.LBB528:
+ 952              	.LBB524:
+ 953              	.LBB520:
+ 954              	.LBB505:
+ 955              	.LBB500:
+ 956              	.LBB495:
+ 957              	.LBB490:
   37:../../libDaisy//src/hid/midi.h ****             tx     = {DSY_GPIOB, 6};
- 414              		.loc 2 37 20 view .LVU99
- 415 0010 B1F800E0 		ldrh	lr, [r1]
- 416              	.LBE388:
- 417              	.LBE391:
- 418              	.LBE394:
- 419              	.LBE397:
- 420              	.LBE410:
- 421              	.LBE413:
- 422              	.LBE416:
- 423              	.LBB417:
- 424              	.LBB379:
- 425              	.LBB368:
- 426              	.LBB367:
- 427              	.LBB366:
- 428              		.loc 14 166 34 view .LVU100
- 429 0014 0260     		str	r2, [r0]
- 430              	.LVL16:
- 431              		.loc 14 166 34 view .LVU101
- 432              	.LBE366:
- 433              	.LBE367:
- 434              	.LBE368:
- 435              	.LBB369:
- 436              	.LBI369:
-  95:../../libDaisy//src/hid/audio.h ****     ~AudioHandle() {}
- 437              		.loc 12 95 5 is_stmt 1 view .LVU102
- 438              	.LBE369:
- 439              	.LBE379:
- 440              	.LBE417:
- 441              	.LBB418:
-ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 24
+ 958              		.loc 4 37 20 view .LVU226
+ 959 000a B1F800C0 		ldrh	ip, [r1]
+  38:../../libDaisy//src/hid/midi.h ****         }
+ 960              		.loc 4 38 20 view .LVU227
+ 961 000e 8988     		ldrh	r1, [r1, #4]
+ 962              	.LBE490:
+ 963              	.LBE495:
+ 964              	.LBE500:
+ 965              	.LBE505:
+ 966              	.LBE520:
+ 967              	.LBE524:
+ 968              	.LBE528:
+ 969              	.LBE552:
+ 970              	.LBE555:
+ 971              	.LBE456:
+ 972              	.LBE455:
+ 973              		.loc 14 106 1 view .LVU228
+ 974 0010 10B5     		push	{r4, lr}
+ 975              		.cfi_def_cfa_offset 8
+ 976              		.cfi_offset 4, -8
+ 977              		.cfi_offset 14, -4
+ 978              	.LBB563:
+ 979              	.LBB561:
+ 980              	.LBB556:
+ 981              	.LBB553:
+ 982              	.LBB529:
+ 983              	.LBB525:
+ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s 			page 37
 
 
- 442              	.LBB414:
- 443              	.LBB411:
+ 984              	.LBB521:
+ 985              	.LBB506:
+ 986              	.LBB501:
+ 987              	.LBB496:
+ 988              	.LBB491:
+  38:../../libDaisy//src/hid/midi.h ****         }
+ 989              		.loc 4 38 20 view .LVU229
+ 990 0012 A3F82A12 		strh	r1, [r3, #554]	@ movhi
+ 991              	.LBE491:
+ 992              	.LBE496:
+ 993              	.LBE501:
+ 994              	.LBE506:
+ 995              	.LBE521:
+ 996              	.LBE525:
+ 997              	.LBE529:
+ 998              	.LBB530:
+ 999              	.LBB480:
+ 1000              	.LBB468:
+ 1001              	.LBB466:
+ 1002              	.LBB464:
+ 1003              		.loc 16 166 34 view .LVU230
+ 1004 0016 0024     		movs	r4, #0
+ 1005              	.LBE464:
+ 1006              	.LBE466:
+ 1007              	.LBE468:
+ 1008              	.LBE480:
+ 1009              	.LBE530:
+ 1010              	.LBB531:
+ 1011              	.LBB526:
+ 1012              	.LBB522:
   84:../../libDaisy//src/hid/midi.h ****     ~MidiHandler() {}
- 444              		.loc 2 84 19 is_stmt 0 view .LVU103
- 445 0016 1049     		ldr	r1, .L20+8
- 446              	.LBE411:
- 447              	.LBE414:
- 448              	.LBE418:
- 449              	.LBB419:
- 450              	.LBB380:
- 451              	.LBB372:
- 452              	.LBB370:
- 453              	.LBB371:
+ 1013              		.loc 4 84 19 view .LVU231
+ 1014 0018 1749     		ldr	r1, .L55+12
+ 1015              	.LBB507:
+ 1016              	.LBB502:
+ 1017              	.LBB497:
+ 1018              	.LBB492:
+  36:../../libDaisy//src/hid/midi.h ****             rx     = {DSY_GPIOB, 7};
+ 1019              		.loc 4 36 20 view .LVU232
+ 1020 001a C3F82442 		str	r4, [r3, #548]
+ 1021              	.LBE492:
+ 1022              	.LBE497:
+ 1023              	.LBE502:
+ 1024              	.LBE507:
+  84:../../libDaisy//src/hid/midi.h ****     ~MidiHandler() {}
+ 1025              		.loc 4 84 19 view .LVU233
+ 1026 001e C3F83012 		str	r1, [r3, #560]
+ 1027 0022 4FF60F01 		movw	r1, #63503
+ 1028              	.LBB508:
+ 1029              	.LBB509:
+ 1030              	.LBB510:
+ 1031              	.LBB511:
+ 1032              		.file 17 "../../libDaisy//src/per/uart.h"
+   1:../../libDaisy//src/per/uart.h **** /* 
+   2:../../libDaisy//src/per/uart.h **** TODO
+   3:../../libDaisy//src/per/uart.h **** - UART1 defaults to DMA, add flexible config for DMA on all periphs
+   4:../../libDaisy//src/per/uart.h **** - Transmit function improvements.
+ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s 			page 38
+
+
+   5:../../libDaisy//src/per/uart.h **** - Overflow handling, etc. for Rx Queue.
+   6:../../libDaisy//src/per/uart.h **** */
+   7:../../libDaisy//src/per/uart.h **** 
+   8:../../libDaisy//src/per/uart.h **** #pragma once
+   9:../../libDaisy//src/per/uart.h **** #ifndef DSY_UART_H
+  10:../../libDaisy//src/per/uart.h **** #define DSY_UART_H /**< macro */
+  11:../../libDaisy//src/per/uart.h **** #include "daisy_core.h"
+  12:../../libDaisy//src/per/uart.h **** 
+  13:../../libDaisy//src/per/uart.h **** 
+  14:../../libDaisy//src/per/uart.h **** namespace daisy
+  15:../../libDaisy//src/per/uart.h **** {
+  16:../../libDaisy//src/per/uart.h **** /** @addtogroup serial
+  17:../../libDaisy//src/per/uart.h ****     @{
+  18:../../libDaisy//src/per/uart.h ****     */
+  19:../../libDaisy//src/per/uart.h **** 
+  20:../../libDaisy//src/per/uart.h **** /** 
+  21:../../libDaisy//src/per/uart.h ****     Uart Peripheral
+  22:../../libDaisy//src/per/uart.h ****     @author shensley
+  23:../../libDaisy//src/per/uart.h ****     @date March 2020
+  24:../../libDaisy//src/per/uart.h ****     */
+  25:../../libDaisy//src/per/uart.h **** class UartHandler
+  26:../../libDaisy//src/per/uart.h **** {
+  27:../../libDaisy//src/per/uart.h ****   public:
+  28:../../libDaisy//src/per/uart.h ****     struct Config
+  29:../../libDaisy//src/per/uart.h ****     {
+  30:../../libDaisy//src/per/uart.h ****         enum class Peripheral
+  31:../../libDaisy//src/per/uart.h ****         {
+  32:../../libDaisy//src/per/uart.h ****             USART_1,
+  33:../../libDaisy//src/per/uart.h ****             USART_2,
+  34:../../libDaisy//src/per/uart.h ****             USART_3,
+  35:../../libDaisy//src/per/uart.h ****             UART_4,
+  36:../../libDaisy//src/per/uart.h ****             UART_5,
+  37:../../libDaisy//src/per/uart.h ****             USART_6,
+  38:../../libDaisy//src/per/uart.h ****             UART_7,
+  39:../../libDaisy//src/per/uart.h ****             UART_8,
+  40:../../libDaisy//src/per/uart.h ****             LPUART_1,
+  41:../../libDaisy//src/per/uart.h ****         };
+  42:../../libDaisy//src/per/uart.h **** 
+  43:../../libDaisy//src/per/uart.h ****         enum class StopBits
+  44:../../libDaisy//src/per/uart.h ****         {
+  45:../../libDaisy//src/per/uart.h ****             BITS_0_5,
+  46:../../libDaisy//src/per/uart.h ****             BITS_1,
+  47:../../libDaisy//src/per/uart.h ****             BITS_1_5,
+  48:../../libDaisy//src/per/uart.h ****             BITS_2,
+  49:../../libDaisy//src/per/uart.h ****         };
+  50:../../libDaisy//src/per/uart.h **** 
+  51:../../libDaisy//src/per/uart.h ****         enum class Parity
+  52:../../libDaisy//src/per/uart.h ****         {
+  53:../../libDaisy//src/per/uart.h ****             NONE,
+  54:../../libDaisy//src/per/uart.h ****             EVEN,
+  55:../../libDaisy//src/per/uart.h ****             ODD,
+  56:../../libDaisy//src/per/uart.h ****         };
+  57:../../libDaisy//src/per/uart.h **** 
+  58:../../libDaisy//src/per/uart.h ****         enum class Mode
+  59:../../libDaisy//src/per/uart.h ****         {
+  60:../../libDaisy//src/per/uart.h ****             RX,
+  61:../../libDaisy//src/per/uart.h ****             TX,
+ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s 			page 39
+
+
+  62:../../libDaisy//src/per/uart.h ****             TX_RX,
+  63:../../libDaisy//src/per/uart.h ****         };
+  64:../../libDaisy//src/per/uart.h **** 
+  65:../../libDaisy//src/per/uart.h ****         enum class WordLength
+  66:../../libDaisy//src/per/uart.h ****         {
+  67:../../libDaisy//src/per/uart.h ****             BITS_7,
+  68:../../libDaisy//src/per/uart.h ****             BITS_8,
+  69:../../libDaisy//src/per/uart.h ****             BITS_9,
+  70:../../libDaisy//src/per/uart.h ****         };
+  71:../../libDaisy//src/per/uart.h **** 
+  72:../../libDaisy//src/per/uart.h ****         struct
+  73:../../libDaisy//src/per/uart.h ****         {
+  74:../../libDaisy//src/per/uart.h ****             dsy_gpio_pin tx; /**< & */
+  75:../../libDaisy//src/per/uart.h ****             dsy_gpio_pin rx; /**< & */
+  76:../../libDaisy//src/per/uart.h ****         } pin_config;        /**< & */
+  77:../../libDaisy//src/per/uart.h **** 
+  78:../../libDaisy//src/per/uart.h ****         Config()
+  79:../../libDaisy//src/per/uart.h ****         {
+  80:../../libDaisy//src/per/uart.h ****             // user must init periph, pin_config, and mode
+  81:../../libDaisy//src/per/uart.h ****             stopbits   = StopBits::BITS_1;
+  82:../../libDaisy//src/per/uart.h ****             parity     = Parity::NONE;
+  83:../../libDaisy//src/per/uart.h ****             wordlength = WordLength::BITS_8;
+  84:../../libDaisy//src/per/uart.h ****             baudrate   = 4800;
+  85:../../libDaisy//src/per/uart.h ****             // baudrate   = 31250;
+  86:../../libDaisy//src/per/uart.h ****         }
+  87:../../libDaisy//src/per/uart.h **** 
+  88:../../libDaisy//src/per/uart.h ****         Peripheral periph;
+  89:../../libDaisy//src/per/uart.h ****         StopBits   stopbits;
+  90:../../libDaisy//src/per/uart.h ****         Parity     parity;
+  91:../../libDaisy//src/per/uart.h ****         Mode       mode;
+  92:../../libDaisy//src/per/uart.h ****         WordLength wordlength;
+  93:../../libDaisy//src/per/uart.h ****         uint32_t   baudrate;
+  94:../../libDaisy//src/per/uart.h ****     };
+  95:../../libDaisy//src/per/uart.h **** 
+  96:../../libDaisy//src/per/uart.h **** 
+  97:../../libDaisy//src/per/uart.h ****     UartHandler() : pimpl_(nullptr) {}
+ 1033              		.loc 17 97 35 view .LVU234
+ 1034 0026 C3F82C42 		str	r4, [r3, #556]
+ 1035              	.LBE511:
+ 1036              	.LBE510:
+ 1037              	.LBE509:
+ 1038              	.LBE508:
+  84:../../libDaisy//src/hid/midi.h ****     ~MidiHandler() {}
+ 1039              		.loc 4 84 19 view .LVU235
+ 1040 002a A3F83412 		strh	r1, [r3, #564]	@ movhi
+ 1041 002e 0721     		movs	r1, #7
+ 1042              	.LBB513:
+ 1043              	.LBB503:
+ 1044              	.LBB498:
+ 1045              	.LBB493:
+  37:../../libDaisy//src/hid/midi.h ****             tx     = {DSY_GPIOB, 6};
+ 1046              		.loc 4 37 20 view .LVU236
+ 1047 0030 A3F828C2 		strh	ip, [r3, #552]	@ movhi
+ 1048              	.LBE493:
+ 1049              	.LBE498:
+ 1050              	.LBE503:
+ 1051              	.LBE513:
+ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s 			page 40
+
+
+  84:../../libDaisy//src/hid/midi.h ****     ~MidiHandler() {}
+ 1052              		.loc 4 84 19 view .LVU237
+ 1053 0034 83F83612 		strb	r1, [r3, #566]
+ 1054              	.LBE522:
+ 1055              	.LBE526:
+ 1056              	.LBE531:
+ 1057              	.LBB532:
+ 1058              	.LBB481:
+ 1059              	.LBB469:
+ 1060              	.LBB467:
+ 1061              	.LBB465:
+ 1062              		.loc 16 166 34 view .LVU238
+ 1063 0038 0460     		str	r4, [r0]
+ 1064              	.LVL41:
+ 1065              		.loc 16 166 34 view .LVU239
+ 1066              	.LBE465:
+ 1067              	.LBE467:
+ 1068              	.LBE469:
+ 1069              	.LBB470:
+ 1070              	.LBI470:
   95:../../libDaisy//src/hid/audio.h ****     ~AudioHandle() {}
- 454              		.loc 12 95 35 view .LVU104
- 455 0018 4261     		str	r2, [r0, #20]
- 456              	.LVL17:
+ 1071              		.loc 13 95 5 is_stmt 1 view .LVU240
+ 1072              	.LBE470:
+ 1073              	.LBE481:
+ 1074              	.LBE532:
+ 1075              	.LBE553:
+ 1076              	.LBE556:
+   7:ExampleProject.cpp **** DaisyPod hw;
+ 1077              		.loc 14 7 10 is_stmt 0 view .LVU241
+ 1078 003a 1049     		ldr	r1, .L55+16
+ 1079              	.LBB557:
+ 1080              	.LBB554:
+ 1081              	.LBB533:
+ 1082              	.LBB482:
+ 1083              	.LBB473:
+ 1084              	.LBB471:
+ 1085              	.LBB472:
   95:../../libDaisy//src/hid/audio.h ****     ~AudioHandle() {}
- 457              		.loc 12 95 35 view .LVU105
- 458              	.LBE371:
- 459              	.LBE370:
- 460              	.LBE372:
- 461              	.LBB373:
- 462              	.LBI373:
+ 1086              		.loc 13 95 35 view .LVU242
+ 1087 003c 4461     		str	r4, [r0, #20]
+ 1088              	.LVL42:
+  95:../../libDaisy//src/hid/audio.h ****     ~AudioHandle() {}
+ 1089              		.loc 13 95 35 view .LVU243
+ 1090              	.LBE472:
+ 1091              	.LBE471:
+ 1092              	.LBE473:
+ 1093              	.LBB474:
+ 1094              	.LBI474:
   92:../../libDaisy//src/per/adc.h ****     ~AdcHandle() {}
- 463              		.loc 11 92 5 is_stmt 1 view .LVU106
+ 1095              		.loc 12 92 5 is_stmt 1 view .LVU244
   92:../../libDaisy//src/per/adc.h ****     ~AdcHandle() {}
- 464              		.loc 11 92 5 is_stmt 0 view .LVU107
- 465              	.LBE373:
- 466              	.LBB374:
- 467              	.LBI374:
- 468              		.file 15 "../../libDaisy//src/per/dac.h"
+ 1096              		.loc 12 92 5 is_stmt 0 view .LVU245
+ 1097              	.LBE474:
+ 1098              	.LBB475:
+ 1099              	.LBI475:
+ 1100              		.file 18 "../../libDaisy//src/per/dac.h"
    1:../../libDaisy//src/per/dac.h **** #pragma once
+ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s 			page 41
+
+
    2:../../libDaisy//src/per/dac.h **** #ifndef DSY_DAC_H
    3:../../libDaisy//src/per/dac.h **** #define DSY_DAC_H
    4:../../libDaisy//src/per/dac.h **** 
@@ -1438,9 +2425,6 @@ ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 1
   23:../../libDaisy//src/per/dac.h ****   public:
   24:../../libDaisy//src/per/dac.h ****     /** Return Values for the DacHandle class */
   25:../../libDaisy//src/per/dac.h ****     enum class Result
-ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 25
-
-
   26:../../libDaisy//src/per/dac.h ****     {
   27:../../libDaisy//src/per/dac.h ****         OK,
   28:../../libDaisy//src/per/dac.h ****         ERR,
@@ -1474,6 +2458,9 @@ ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 1
   56:../../libDaisy//src/per/dac.h ****     enum class BitDepth
   57:../../libDaisy//src/per/dac.h ****     {
   58:../../libDaisy//src/per/dac.h ****         BITS_8,
+ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s 			page 42
+
+
   59:../../libDaisy//src/per/dac.h ****         BITS_12
   60:../../libDaisy//src/per/dac.h ****     };
   61:../../libDaisy//src/per/dac.h **** 
@@ -1498,266 +2485,162 @@ ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 1
   80:../../libDaisy//src/per/dac.h ****         BitDepth    bitdepth;
   81:../../libDaisy//src/per/dac.h ****         BufferState buff_state;
   82:../../libDaisy//src/per/dac.h ****     };
-ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 26
-
-
   83:../../libDaisy//src/per/dac.h **** 
   84:../../libDaisy//src/per/dac.h ****     DacHandle() : pimpl_(nullptr) {}
- 469              		.loc 15 84 5 is_stmt 1 view .LVU108
- 470              	.LBB375:
- 471              	.LBB376:
- 472              		.loc 15 84 33 is_stmt 0 view .LVU109
- 473 001a 0262     		str	r2, [r0, #32]
- 474              	.LVL18:
- 475              		.loc 15 84 33 view .LVU110
- 476              	.LBE376:
- 477              	.LBE375:
- 478              	.LBE374:
- 479              	.LBB377:
- 480              	.LBI377:
+ 1101              		.loc 18 84 5 is_stmt 1 view .LVU246
+ 1102              	.LBB476:
+ 1103              	.LBB477:
+ 1104              		.loc 18 84 33 is_stmt 0 view .LVU247
+ 1105 003e 0462     		str	r4, [r0, #32]
+ 1106              	.LVL43:
+ 1107              		.loc 18 84 33 view .LVU248
+ 1108              	.LBE477:
+ 1109              	.LBE476:
+ 1110              	.LBE475:
+ 1111              	.LBB478:
+ 1112              	.LBI478:
   40:../../libDaisy//src/hid/usb.h **** 
- 481              		.loc 10 40 5 is_stmt 1 view .LVU111
+ 1113              		.loc 11 40 5 is_stmt 1 view .LVU249
   40:../../libDaisy//src/hid/usb.h **** 
- 482              		.loc 10 40 5 is_stmt 0 view .LVU112
- 483              	.LBE377:
- 484              	.LBB378:
- 485              	.LBI378:
+ 1114              		.loc 11 40 5 is_stmt 0 view .LVU250
+ 1115              	.LBE478:
+ 1116              	.LBB479:
+ 1117              	.LBI479:
   77:../../libDaisy//src/sys/system.h ****     ~System() {}
- 486              		.loc 9 77 5 is_stmt 1 view .LVU113
+ 1118              		.loc 10 77 5 is_stmt 1 view .LVU251
   77:../../libDaisy//src/sys/system.h ****     ~System() {}
- 487              		.loc 9 77 5 is_stmt 0 view .LVU114
- 488              	.LBE378:
- 489              	.LBE380:
- 490              	.LBE419:
- 491              	.LBB420:
- 492              	.LBI420:
+ 1119              		.loc 10 77 5 is_stmt 0 view .LVU252
+ 1120              	.LBE479:
+ 1121              	.LBE482:
+ 1122              	.LBE533:
+ 1123              	.LBB534:
+ 1124              	.LBI534:
   20:../../libDaisy//src/hid/encoder.h ****     ~Encoder() {}
- 493              		.loc 7 20 5 is_stmt 1 view .LVU115
- 494              	.LBB421:
- 495              	.LBB422:
- 496              	.LBI422:
-  41:../../libDaisy//src/hid/switch.h ****     ~Switch() {}
- 497              		.loc 5 41 5 view .LVU116
-  41:../../libDaisy//src/hid/switch.h ****     ~Switch() {}
- 498              		.loc 5 41 5 is_stmt 0 view .LVU117
- 499              	.LBE422:
- 500              	.LBE421:
- 501              	.LBE420:
- 502              	.LBB423:
- 503              	.LBI423:
-  21:../../libDaisy//src/hid/ctrl.h ****     /** destructor */
- 504              		.loc 6 21 5 is_stmt 1 view .LVU118
-  21:../../libDaisy//src/hid/ctrl.h ****     /** destructor */
- 505              		.loc 6 21 5 is_stmt 0 view .LVU119
- 506              	.LBE423:
- 507              	.LBB424:
- 508              	.LBI424:
-  21:../../libDaisy//src/hid/ctrl.h ****     /** destructor */
- 509              		.loc 6 21 5 is_stmt 1 view .LVU120
-  21:../../libDaisy//src/hid/ctrl.h ****     /** destructor */
- 510              		.loc 6 21 5 is_stmt 0 view .LVU121
- 511              	.LBE424:
- 512              	.LBB425:
-ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 27
+ 1125              		.loc 8 20 5 is_stmt 1 view .LVU253
+ 1126              	.LBB535:
+ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s 			page 43
 
 
- 513              	.LBI425:
+ 1127              	.LBB536:
+ 1128              	.LBI536:
   41:../../libDaisy//src/hid/switch.h ****     ~Switch() {}
- 514              		.loc 5 41 5 is_stmt 1 view .LVU122
+ 1129              		.loc 7 41 5 view .LVU254
   41:../../libDaisy//src/hid/switch.h ****     ~Switch() {}
- 515              		.loc 5 41 5 is_stmt 0 view .LVU123
- 516              	.LBE425:
- 517              	.LBB426:
- 518              	.LBI426:
+ 1130              		.loc 7 41 5 is_stmt 0 view .LVU255
+ 1131              	.LBE536:
+ 1132              	.LBE535:
+ 1133              	.LBE534:
+ 1134              	.LBB537:
+ 1135              	.LBI537:
+  21:../../libDaisy//src/hid/ctrl.h ****     /** destructor */
+ 1136              		.loc 2 21 5 is_stmt 1 view .LVU256
+  21:../../libDaisy//src/hid/ctrl.h ****     /** destructor */
+ 1137              		.loc 2 21 5 is_stmt 0 view .LVU257
+ 1138              	.LBE537:
+ 1139              	.LBB538:
+ 1140              	.LBI538:
+  21:../../libDaisy//src/hid/ctrl.h ****     /** destructor */
+ 1141              		.loc 2 21 5 is_stmt 1 view .LVU258
+  21:../../libDaisy//src/hid/ctrl.h ****     /** destructor */
+ 1142              		.loc 2 21 5 is_stmt 0 view .LVU259
+ 1143              	.LBE538:
+ 1144              	.LBB539:
+ 1145              	.LBI539:
   41:../../libDaisy//src/hid/switch.h ****     ~Switch() {}
- 519              		.loc 5 41 5 is_stmt 1 view .LVU124
+ 1146              		.loc 7 41 5 is_stmt 1 view .LVU260
   41:../../libDaisy//src/hid/switch.h ****     ~Switch() {}
- 520              		.loc 5 41 5 is_stmt 0 view .LVU125
- 521              	.LBE426:
- 522              	.LBB427:
- 523              	.LBI427:
+ 1147              		.loc 7 41 5 is_stmt 0 view .LVU261
+ 1148              	.LBE539:
+ 1149              	.LBB540:
+ 1150              	.LBI540:
+  41:../../libDaisy//src/hid/switch.h ****     ~Switch() {}
+ 1151              		.loc 7 41 5 is_stmt 1 view .LVU262
+  41:../../libDaisy//src/hid/switch.h ****     ~Switch() {}
+ 1152              		.loc 7 41 5 is_stmt 0 view .LVU263
+ 1153              	.LBE540:
+ 1154              	.LBB541:
+ 1155              	.LBI541:
   17:../../libDaisy//src/hid/rgb_led.h ****     ~RgbLed() {}
- 524              		.loc 3 17 5 is_stmt 1 view .LVU126
- 525              	.LBB428:
- 526              	.LBB429:
- 527              	.LBI429:
+ 1156              		.loc 5 17 5 is_stmt 1 view .LVU264
+ 1157              	.LBB542:
+ 1158              	.LBB543:
+ 1159              	.LBI543:
   24:../../libDaisy//src/hid/led.h ****     ~Led() {}
- 528              		.loc 4 24 5 view .LVU127
+ 1160              		.loc 6 24 5 view .LVU265
   24:../../libDaisy//src/hid/led.h ****     ~Led() {}
- 529              		.loc 4 24 5 is_stmt 0 view .LVU128
- 530              	.LBE429:
- 531              	.LBB430:
- 532              	.LBI430:
+ 1161              		.loc 6 24 5 is_stmt 0 view .LVU266
+ 1162              	.LBE543:
+ 1163              	.LBB544:
+ 1164              	.LBI544:
   24:../../libDaisy//src/hid/led.h ****     ~Led() {}
- 533              		.loc 4 24 5 is_stmt 1 view .LVU129
+ 1165              		.loc 6 24 5 is_stmt 1 view .LVU267
   24:../../libDaisy//src/hid/led.h ****     ~Led() {}
- 534              		.loc 4 24 5 is_stmt 0 view .LVU130
- 535              	.LBE430:
- 536              	.LBB431:
- 537              	.LBI431:
+ 1166              		.loc 6 24 5 is_stmt 0 view .LVU268
+ 1167              	.LBE544:
+ 1168              	.LBB545:
+ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s 			page 44
+
+
+ 1169              	.LBI545:
   24:../../libDaisy//src/hid/led.h ****     ~Led() {}
- 538              		.loc 4 24 5 is_stmt 1 view .LVU131
+ 1170              		.loc 6 24 5 is_stmt 1 view .LVU269
   24:../../libDaisy//src/hid/led.h ****     ~Led() {}
- 539              		.loc 4 24 5 is_stmt 0 view .LVU132
- 540              	.LBE431:
- 541              	.LBE428:
- 542              	.LBE427:
- 543              	.LBB432:
- 544              	.LBI432:
+ 1171              		.loc 6 24 5 is_stmt 0 view .LVU270
+ 1172              	.LBE545:
+ 1173              	.LBE542:
+ 1174              	.LBE541:
+ 1175              	.LBB546:
+ 1176              	.LBI546:
   17:../../libDaisy//src/hid/rgb_led.h ****     ~RgbLed() {}
- 545              		.loc 3 17 5 is_stmt 1 view .LVU133
- 546              	.LBB433:
- 547              	.LBB434:
- 548              	.LBI434:
+ 1177              		.loc 5 17 5 is_stmt 1 view .LVU271
+ 1178              	.LBB547:
+ 1179              	.LBB548:
+ 1180              	.LBI548:
   24:../../libDaisy//src/hid/led.h ****     ~Led() {}
- 549              		.loc 4 24 5 view .LVU134
+ 1181              		.loc 6 24 5 view .LVU272
   24:../../libDaisy//src/hid/led.h ****     ~Led() {}
- 550              		.loc 4 24 5 is_stmt 0 view .LVU135
- 551              	.LBE434:
- 552              	.LBB435:
- 553              	.LBI435:
+ 1182              		.loc 6 24 5 is_stmt 0 view .LVU273
+ 1183              	.LBE548:
+ 1184              	.LBB549:
+ 1185              	.LBI549:
   24:../../libDaisy//src/hid/led.h ****     ~Led() {}
- 554              		.loc 4 24 5 is_stmt 1 view .LVU136
-ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 28
-
-
+ 1186              		.loc 6 24 5 is_stmt 1 view .LVU274
   24:../../libDaisy//src/hid/led.h ****     ~Led() {}
- 555              		.loc 4 24 5 is_stmt 0 view .LVU137
- 556              	.LBE435:
- 557              	.LBB436:
- 558              	.LBI436:
+ 1187              		.loc 6 24 5 is_stmt 0 view .LVU275
+ 1188              	.LBE549:
+ 1189              	.LBB550:
+ 1190              	.LBI550:
   24:../../libDaisy//src/hid/led.h ****     ~Led() {}
- 559              		.loc 4 24 5 is_stmt 1 view .LVU138
+ 1191              		.loc 6 24 5 is_stmt 1 view .LVU276
   24:../../libDaisy//src/hid/led.h ****     ~Led() {}
- 560              		.loc 4 24 5 is_stmt 0 view .LVU139
- 561              	.LBE436:
- 562              	.LBE433:
- 563              	.LBE432:
- 564              	.LBB437:
- 565              	.LBI381:
+ 1192              		.loc 6 24 5 is_stmt 0 view .LVU277
+ 1193              	.LBE550:
+ 1194              	.LBE547:
+ 1195              	.LBE546:
+ 1196              	.LBB551:
+ 1197              	.LBI483:
   84:../../libDaisy//src/hid/midi.h ****     ~MidiHandler() {}
- 566              		.loc 2 84 5 is_stmt 1 view .LVU140
- 567              	.LBB415:
- 568              	.LBB412:
- 569              	.LBB398:
- 570              	.LBI398:
- 571              		.file 16 "../../libDaisy//src/per/uart.h"
-   1:../../libDaisy//src/per/uart.h **** /* 
-   2:../../libDaisy//src/per/uart.h **** TODO
-   3:../../libDaisy//src/per/uart.h **** - UART1 defaults to DMA, add flexible config for DMA on all periphs
-   4:../../libDaisy//src/per/uart.h **** - Transmit function improvements.
-   5:../../libDaisy//src/per/uart.h **** - Overflow handling, etc. for Rx Queue.
-   6:../../libDaisy//src/per/uart.h **** */
-   7:../../libDaisy//src/per/uart.h **** 
-   8:../../libDaisy//src/per/uart.h **** #pragma once
-   9:../../libDaisy//src/per/uart.h **** #ifndef DSY_UART_H
-  10:../../libDaisy//src/per/uart.h **** #define DSY_UART_H /**< macro */
-  11:../../libDaisy//src/per/uart.h **** #include "daisy_core.h"
-  12:../../libDaisy//src/per/uart.h **** 
-  13:../../libDaisy//src/per/uart.h **** 
-  14:../../libDaisy//src/per/uart.h **** namespace daisy
-  15:../../libDaisy//src/per/uart.h **** {
-  16:../../libDaisy//src/per/uart.h **** /** @addtogroup serial
-  17:../../libDaisy//src/per/uart.h ****     @{
-  18:../../libDaisy//src/per/uart.h ****     */
-  19:../../libDaisy//src/per/uart.h **** 
-  20:../../libDaisy//src/per/uart.h **** /** 
-  21:../../libDaisy//src/per/uart.h ****     Uart Peripheral
-  22:../../libDaisy//src/per/uart.h ****     @author shensley
-  23:../../libDaisy//src/per/uart.h ****     @date March 2020
-  24:../../libDaisy//src/per/uart.h ****     */
-  25:../../libDaisy//src/per/uart.h **** class UartHandler
-  26:../../libDaisy//src/per/uart.h **** {
-  27:../../libDaisy//src/per/uart.h ****   public:
-  28:../../libDaisy//src/per/uart.h ****     struct Config
-  29:../../libDaisy//src/per/uart.h ****     {
-  30:../../libDaisy//src/per/uart.h ****         enum class Peripheral
-  31:../../libDaisy//src/per/uart.h ****         {
-  32:../../libDaisy//src/per/uart.h ****             USART_1,
-  33:../../libDaisy//src/per/uart.h ****             USART_2,
-  34:../../libDaisy//src/per/uart.h ****             USART_3,
-  35:../../libDaisy//src/per/uart.h ****             UART_4,
-  36:../../libDaisy//src/per/uart.h ****             UART_5,
-ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 29
+ 1198              		.loc 4 84 5 is_stmt 1 view .LVU278
+ 1199              	.LBB527:
+ 1200              	.LBB523:
+ 1201              	.LBB514:
+ 1202              	.LBI514:
+ 1203              		.loc 17 97 5 view .LVU279
+ 1204              	.LBB515:
+ 1205              	.LBB516:
+ 1206              		.loc 17 97 35 is_stmt 0 view .LVU280
+ 1207 0040 C0F87C41 		str	r4, [r0, #380]
+ 1208              	.LVL44:
+ 1209              		.loc 17 97 35 view .LVU281
+ 1210              	.LBE516:
+ 1211              	.LBE515:
+ 1212              	.LBE514:
+ 1213              	.LBB517:
+ 1214              	.LBI517:
+ 1215              		.file 19 "../../libDaisy//src/util/ringbuffer.h"
+ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s 			page 45
 
 
-  37:../../libDaisy//src/per/uart.h ****             USART_6,
-  38:../../libDaisy//src/per/uart.h ****             UART_7,
-  39:../../libDaisy//src/per/uart.h ****             UART_8,
-  40:../../libDaisy//src/per/uart.h ****             LPUART_1,
-  41:../../libDaisy//src/per/uart.h ****         };
-  42:../../libDaisy//src/per/uart.h **** 
-  43:../../libDaisy//src/per/uart.h ****         enum class StopBits
-  44:../../libDaisy//src/per/uart.h ****         {
-  45:../../libDaisy//src/per/uart.h ****             BITS_0_5,
-  46:../../libDaisy//src/per/uart.h ****             BITS_1,
-  47:../../libDaisy//src/per/uart.h ****             BITS_1_5,
-  48:../../libDaisy//src/per/uart.h ****             BITS_2,
-  49:../../libDaisy//src/per/uart.h ****         };
-  50:../../libDaisy//src/per/uart.h **** 
-  51:../../libDaisy//src/per/uart.h ****         enum class Parity
-  52:../../libDaisy//src/per/uart.h ****         {
-  53:../../libDaisy//src/per/uart.h ****             NONE,
-  54:../../libDaisy//src/per/uart.h ****             EVEN,
-  55:../../libDaisy//src/per/uart.h ****             ODD,
-  56:../../libDaisy//src/per/uart.h ****         };
-  57:../../libDaisy//src/per/uart.h **** 
-  58:../../libDaisy//src/per/uart.h ****         enum class Mode
-  59:../../libDaisy//src/per/uart.h ****         {
-  60:../../libDaisy//src/per/uart.h ****             RX,
-  61:../../libDaisy//src/per/uart.h ****             TX,
-  62:../../libDaisy//src/per/uart.h ****             TX_RX,
-  63:../../libDaisy//src/per/uart.h ****         };
-  64:../../libDaisy//src/per/uart.h **** 
-  65:../../libDaisy//src/per/uart.h ****         enum class WordLength
-  66:../../libDaisy//src/per/uart.h ****         {
-  67:../../libDaisy//src/per/uart.h ****             BITS_7,
-  68:../../libDaisy//src/per/uart.h ****             BITS_8,
-  69:../../libDaisy//src/per/uart.h ****             BITS_9,
-  70:../../libDaisy//src/per/uart.h ****         };
-  71:../../libDaisy//src/per/uart.h **** 
-  72:../../libDaisy//src/per/uart.h ****         struct
-  73:../../libDaisy//src/per/uart.h ****         {
-  74:../../libDaisy//src/per/uart.h ****             dsy_gpio_pin tx; /**< & */
-  75:../../libDaisy//src/per/uart.h ****             dsy_gpio_pin rx; /**< & */
-  76:../../libDaisy//src/per/uart.h ****         } pin_config;        /**< & */
-  77:../../libDaisy//src/per/uart.h **** 
-  78:../../libDaisy//src/per/uart.h ****         Config()
-  79:../../libDaisy//src/per/uart.h ****         {
-  80:../../libDaisy//src/per/uart.h ****             // user must init periph, pin_config, and mode
-  81:../../libDaisy//src/per/uart.h ****             stopbits   = StopBits::BITS_1;
-  82:../../libDaisy//src/per/uart.h ****             parity     = Parity::NONE;
-  83:../../libDaisy//src/per/uart.h ****             wordlength = WordLength::BITS_8;
-  84:../../libDaisy//src/per/uart.h ****             baudrate   = 4800;
-  85:../../libDaisy//src/per/uart.h ****             // baudrate   = 31250;
-  86:../../libDaisy//src/per/uart.h ****         }
-  87:../../libDaisy//src/per/uart.h **** 
-  88:../../libDaisy//src/per/uart.h ****         Peripheral periph;
-  89:../../libDaisy//src/per/uart.h ****         StopBits   stopbits;
-  90:../../libDaisy//src/per/uart.h ****         Parity     parity;
-  91:../../libDaisy//src/per/uart.h ****         Mode       mode;
-  92:../../libDaisy//src/per/uart.h ****         WordLength wordlength;
-  93:../../libDaisy//src/per/uart.h ****         uint32_t   baudrate;
-ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 30
-
-
-  94:../../libDaisy//src/per/uart.h ****     };
-  95:../../libDaisy//src/per/uart.h **** 
-  96:../../libDaisy//src/per/uart.h **** 
-  97:../../libDaisy//src/per/uart.h ****     UartHandler() : pimpl_(nullptr) {}
- 572              		.loc 16 97 5 view .LVU141
- 573              	.LBB399:
- 574              	.LBB400:
- 575              		.loc 16 97 35 is_stmt 0 view .LVU142
- 576 001c C0F87C21 		str	r2, [r0, #380]
- 577              	.LVL19:
- 578              		.loc 16 97 35 view .LVU143
- 579              	.LBE400:
- 580              	.LBE399:
- 581              	.LBE398:
- 582              	.LBB401:
- 583              	.LBI401:
- 584              		.file 17 "../../libDaisy//src/util/ringbuffer.h"
    1:../../libDaisy//src/util/ringbuffer.h **** #pragma once
    2:../../libDaisy//src/util/ringbuffer.h **** #ifndef DSY_RINGBUFFER_H
    3:../../libDaisy//src/util/ringbuffer.h **** #define DSY_RINGBUFFER_H
@@ -1779,224 +2662,312 @@ ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 1
   19:../../libDaisy//src/util/ringbuffer.h **** {
   20:../../libDaisy//src/util/ringbuffer.h ****   public:
   21:../../libDaisy//src/util/ringbuffer.h ****     RingBuffer() {}
- 585              		.loc 17 21 5 is_stmt 1 view .LVU144
- 586              		.loc 17 21 5 is_stmt 0 view .LVU145
- 587              	.LBE401:
- 588              	.LBB402:
- 589              	.LBI384:
+ 1216              		.loc 19 21 5 is_stmt 1 view .LVU282
+ 1217              		.loc 19 21 5 is_stmt 0 view .LVU283
+ 1218              	.LBE517:
+ 1219              	.LBB518:
+ 1220              	.LBI486:
   86:../../libDaisy//src/hid/midi.h **** 
   87:../../libDaisy//src/hid/midi.h ****     struct Config
- 590              		.loc 2 87 12 is_stmt 1 view .LVU146
- 591              	.LBB395:
- 592              	.LBI385:
+ 1221              		.loc 4 87 12 is_stmt 1 view .LVU284
+ 1222              	.LBB504:
+ 1223              	.LBI487:
   34:../../libDaisy//src/hid/midi.h ****         {
- 593              		.loc 2 34 9 view .LVU147
- 594              	.LBB392:
- 595              	.LBB389:
+ 1224              		.loc 4 34 9 view .LVU285
+ 1225              	.LBB499:
+ 1226              	.LBB494:
   36:../../libDaisy//src/hid/midi.h ****             rx     = {DSY_GPIOB, 7};
- 596              		.loc 2 36 13 view .LVU148
-  36:../../libDaisy//src/hid/midi.h ****             rx     = {DSY_GPIOB, 7};
- 597              		.loc 2 36 20 is_stmt 0 view .LVU149
- 598 0020 C3F82422 		str	r2, [r3, #548]
-ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 31
-
-
+ 1227              		.loc 4 36 13 view .LVU286
   37:../../libDaisy//src/hid/midi.h ****             tx     = {DSY_GPIOB, 6};
- 599              		.loc 2 37 13 is_stmt 1 view .LVU150
+ 1228              		.loc 4 37 13 view .LVU287
   38:../../libDaisy//src/hid/midi.h ****         }
- 600              		.loc 2 38 20 is_stmt 0 view .LVU151
- 601 0024 A3F82AC2 		strh	ip, [r3, #554]	@ movhi
- 602              	.LBE389:
- 603              	.LBE392:
- 604              	.LBE395:
- 605              	.LBE402:
-  84:../../libDaisy//src/hid/midi.h ****     ~MidiHandler() {}
- 606              		.loc 2 84 19 view .LVU152
- 607 0028 4FF0070C 		mov	ip, #7
- 608              	.LBB403:
- 609              	.LBB404:
- 610              	.LBB405:
- 611              	.LBB406:
- 612              		.loc 16 97 35 view .LVU153
- 613 002c C3F82C22 		str	r2, [r3, #556]
- 614              	.LBE406:
- 615              	.LBE405:
- 616              	.LBE404:
- 617              	.LBE403:
-  84:../../libDaisy//src/hid/midi.h ****     ~MidiHandler() {}
- 618              		.loc 2 84 19 view .LVU154
- 619 0030 4FF60F02 		movw	r2, #63503
- 620 0034 C3F83012 		str	r1, [r3, #560]
- 621 0038 A3F83422 		strh	r2, [r3, #564]	@ movhi
- 622 003c 83F836C2 		strb	ip, [r3, #566]
- 623              	.LBB408:
- 624              	.LBB396:
- 625              	.LBB393:
- 626              	.LBB390:
-  37:../../libDaisy//src/hid/midi.h ****             tx     = {DSY_GPIOB, 6};
- 627              		.loc 2 37 20 view .LVU155
- 628 0040 A3F828E2 		strh	lr, [r3, #552]	@ movhi
+ 1229              		.loc 4 38 13 view .LVU288
   38:../../libDaisy//src/hid/midi.h ****         }
- 629              		.loc 2 38 13 is_stmt 1 view .LVU156
- 630              	.LVL20:
-  38:../../libDaisy//src/hid/midi.h ****         }
- 631              		.loc 2 38 13 is_stmt 0 view .LVU157
- 632              	.LBE390:
- 633              	.LBE393:
- 634              	.LBE396:
- 635              	.LBE408:
- 636              	.LBB409:
- 637              	.LBI403:
+ 1230              		.loc 4 38 13 is_stmt 0 view .LVU289
+ 1231              	.LBE494:
+ 1232              	.LBE499:
+ 1233              	.LBE504:
+ 1234              	.LBE518:
+ 1235              	.LBB519:
+ 1236              	.LBI508:
   25:../../libDaisy//src/hid/midi.h ****     ~MidiUartTransport() {}
- 638              		.loc 2 25 5 is_stmt 1 view .LVU158
- 639              	.LBB407:
- 640              	.LBI404:
- 641              		.loc 16 97 5 view .LVU159
- 642              		.loc 16 97 5 is_stmt 0 view .LVU160
- 643              	.LBE407:
- 644              	.LBE409:
- 645              	.LBE412:
- 646              	.LBE415:
- 647              	.LBE437:
-ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 32
+ 1237              		.loc 4 25 5 is_stmt 1 view .LVU290
+ 1238              	.LBB512:
+ 1239              	.LBI509:
+ 1240              		.loc 17 97 5 view .LVU291
+ 1241              		.loc 17 97 5 is_stmt 0 view .LVU292
+ 1242              	.LBE512:
+ 1243              	.LBE519:
+ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s 			page 46
 
 
- 648              	.LBE438:
- 649              	.LBE439:
-   7:ExampleProject.cpp **** 
- 650              		.loc 13 7 10 view .LVU161
- 651 0044 054A     		ldr	r2, .L20+12
- 652 0046 0649     		ldr	r1, .L20+16
- 653              	.LBE440:
- 654              	.LBE442:
- 655              		.loc 13 36 1 view .LVU162
- 656 0048 5DF804EB 		ldr	lr, [sp], #4
- 657              		.cfi_restore 14
- 658              		.cfi_def_cfa_offset 0
- 659              	.LBB443:
- 660              	.LBB441:
-   7:ExampleProject.cpp **** 
- 661              		.loc 13 7 10 view .LVU163
- 662 004c FFF7FEBF 		b	__aeabi_atexit
- 663              	.LVL21:
- 664              	.L21:
- 665              		.align	2
- 666              	.L20:
- 667 0050 00000000 		.word	hw
- 668 0054 00000000 		.word	.LANCHOR0
- 669 0058 80707FF0 		.word	-260083584
- 670 005c 00000000 		.word	__dso_handle
- 671 0060 00000000 		.word	_ZN5daisy8DaisyPodD1Ev
- 672              	.LBE441:
- 673              	.LBE443:
- 674              		.cfi_endproc
- 675              	.LFE5368:
- 677              		.section	.init_array,"aw",%init_array
- 678              		.align	2
- 679 0000 00000000 		.word	_GLOBAL__sub_I_hw(target1)
- 680              		.global	hw
- 681              		.section	.rodata
- 682              		.align	2
- 683              		.set	.LANCHOR0,. + 0
- 684              	.LC0:
- 685 0000 01       		.byte	1
- 686 0001 07       		.byte	7
- 687 0002 0000     		.space	2
- 688              	.LC1:
- 689 0004 01       		.byte	1
- 690 0005 06       		.byte	6
- 691              		.section	.bss.hw,"aw",%nobits
- 692              		.align	2
- 695              	hw:
- 696 0000 00000000 		.space	37432
- 696      00000000 
- 696      00000000 
- 696      00000000 
- 696      00000000 
- 697              		.text
- 698              	.Letext0:
- 699              		.file 18 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\machine\\_default_types.h"
- 700              		.file 19 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\sys\\_stdint.h"
- 701              		.file 20 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\stdint.h"
-ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 33
+ 1244              	.LBE523:
+ 1245              	.LBE527:
+ 1246              	.LBE551:
+ 1247              	.LBE554:
+ 1248              	.LBE557:
+   7:ExampleProject.cpp **** DaisyPod hw;
+ 1249              		.loc 14 7 10 view .LVU293
+ 1250 0044 FFF7FEFF 		bl	__aeabi_atexit
+ 1251              	.LVL45:
+ 1252              	.LBB558:
+ 1253              	.LBI558:
+  25:../../libDaisy//src/hid/parameter.h ****     /** Destructor */
+ 1254              		.loc 1 25 5 is_stmt 1 view .LVU294
+ 1255              	.LBB559:
+ 1256              	.LBB560:
+ 1257              	.LBI560:
+  21:../../libDaisy//src/hid/ctrl.h ****     /** destructor */
+ 1258              		.loc 2 21 5 view .LVU295
+  21:../../libDaisy//src/hid/ctrl.h ****     /** destructor */
+ 1259              		.loc 2 21 5 is_stmt 0 view .LVU296
+ 1260              	.LBE560:
+ 1261              	.LBE559:
+ 1262              	.LBE558:
+   9:ExampleProject.cpp **** Parameter knob2;
+ 1263              		.loc 14 9 11 view .LVU297
+ 1264 0048 0A4A     		ldr	r2, .L55+8
+ 1265 004a 0D49     		ldr	r1, .L55+20
+ 1266 004c 0D48     		ldr	r0, .L55+24
+ 1267 004e FFF7FEFF 		bl	__aeabi_atexit
+ 1268              	.LVL46:
+  11:ExampleProject.cpp **** Color led1Color[4];
+ 1269              		.loc 14 11 18 is_stmt 1 view .LVU298
+  11:ExampleProject.cpp **** Color led1Color[4];
+ 1270              		.loc 14 11 7 is_stmt 0 view .LVU299
+ 1271 0052 084A     		ldr	r2, .L55+8
+ 1272 0054 0C49     		ldr	r1, .L55+28
+ 1273 0056 2046     		mov	r0, r4
+ 1274 0058 FFF7FEFF 		bl	__aeabi_atexit
+ 1275              	.LVL47:
+  12:ExampleProject.cpp **** Color led2Color[101];
+ 1276              		.loc 14 12 20 is_stmt 1 view .LVU300
+  12:ExampleProject.cpp **** Color led2Color[101];
+ 1277              		.loc 14 12 7 is_stmt 0 view .LVU301
+ 1278 005c 2046     		mov	r0, r4
+ 1279 005e 054A     		ldr	r2, .L55+8
+ 1280 0060 0A49     		ldr	r1, .L55+32
+ 1281              	.LBE561:
+ 1282              	.LBE563:
+ 1283              		.loc 14 106 1 view .LVU302
+ 1284 0062 BDE81040 		pop	{r4, lr}
+ 1285              		.cfi_restore 14
+ 1286              		.cfi_restore 4
+ 1287              		.cfi_def_cfa_offset 0
+ 1288              	.LBB564:
+ 1289              	.LBB562:
+  12:ExampleProject.cpp **** Color led2Color[101];
+ 1290              		.loc 14 12 7 view .LVU303
+ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s 			page 47
 
 
- 702              		.file 21 "c:\\program files\\daisytoolchain\\lib\\gcc\\arm-none-eabi\\10.2.1\\include\\stddef.h"
- 703              		.file 22 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\cmath"
- 704              		.file 23 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\bits\\std_abs.h"
- 705              		.file 24 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\cstdlib"
- 706              		.file 25 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\cstdint"
- 707              		.file 26 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\type_traits"
- 708              		.file 27 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\debug\\debug.h"
- 709              		.file 28 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\arm-none-eabi\\t
- 710              		.file 29 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\bits\\algorithmf
- 711              		.file 30 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\bits\\stl_pair.h
- 712              		.file 31 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\bits\\exception_
- 713              		.file 32 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\cstdarg"
- 714              		.file 33 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\cstdio"
- 715              		.file 34 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\cstring"
- 716              		.file 35 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\cwchar"
- 717              		.file 36 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\clocale"
- 718              		.file 37 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\bits\\basic_stri
- 719              		.file 38 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\bits\\stl_tempbu
- 720              		.file 39 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\bits\\predefined
- 721              		.file 40 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\sys\\_types.h"
- 722              		.file 41 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\sys\\reent.h"
- 723              		.file 42 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\sys\\lock.h"
- 724              		.file 43 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\math.h"
- 725              		.file 44 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\stdlib.h"
- 726              		.file 45 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\math.h"
- 727              		.file 46 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\stdlib.h"
- 728              		.file 47 "../../libDaisy//src/daisy_core.h"
- 729              		.file 48 "../../libDaisy//src/per/tim.h"
- 730              		.file 49 "../../libDaisy//src/per/sai.h"
- 731              		.file 50 "../../libDaisy//src/hid/MidiEvent.h"
- 732              		.file 51 "../../libDaisy//src/util/wav_format.h"
- 733              		.file 52 "../../libDaisy//src/util/color.h"
- 734              		.file 53 "../../libDaisy//src/dev/max11300.h"
- 735              		.file 54 "../../libDaisy//src/per/gpio.h"
- 736              		.file 55 "../../libDaisy//src/dev/sdram.h"
- 737              		.file 56 "c:\\program files\\daisytoolchain\\lib\\gcc\\arm-none-eabi\\10.2.1\\include\\stdarg.h"
- 738              		.file 57 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\stdio.h"
- 739              		.file 58 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\string.h"
- 740              		.file 59 "../../DaisySP//Source/Control/adenv.h"
- 741              		.file 60 "../../DaisySP//Source/Utility/dsp.h"
- 742              		.file 61 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\wchar.h"
- 743              		.file 62 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\locale.h"
- 744              		.file 63 "<built-in>"
- 745              		.file 64 "../../libDaisy//src/dev/sr_595.h"
-ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s 			page 34
+ 1291 0066 FFF7FEBF 		b	__aeabi_atexit
+ 1292              	.LVL48:
+ 1293              	.L56:
+ 1294 006a 00BF     		.align	2
+ 1295              	.L55:
+ 1296 006c 00000000 		.word	hw
+ 1297 0070 00000000 		.word	.LANCHOR5
+ 1298 0074 00000000 		.word	__dso_handle
+ 1299 0078 80707FF0 		.word	-260083584
+ 1300 007c 00000000 		.word	_ZN5daisy8DaisyPodD1Ev
+ 1301 0080 00000000 		.word	_ZN5daisy9ParameterD1Ev
+ 1302 0084 00000000 		.word	.LANCHOR2
+ 1303 0088 00000000 		.word	__tcf_0
+ 1304 008c 00000000 		.word	__tcf_1
+ 1305              	.LBE562:
+ 1306              	.LBE564:
+ 1307              		.cfi_endproc
+ 1308              	.LFE5375:
+ 1310              		.section	.init_array,"aw",%init_array
+ 1311              		.align	2
+ 1312 0000 00000000 		.word	_GLOBAL__sub_I_hw(target1)
+ 1313              		.global	color2
+ 1314              		.global	color
+ 1315              		.global	led2Color
+ 1316              		.global	led1Color
+ 1317              		.global	knob2
+ 1318              		.global	hw
+ 1319              		.section	.rodata
+ 1320              		.align	2
+ 1321              		.set	.LANCHOR5,. + 0
+ 1322              	.LC0:
+ 1323 0000 01       		.byte	1
+ 1324 0001 07       		.byte	7
+ 1325 0002 0000     		.space	2
+ 1326              	.LC1:
+ 1327 0004 01       		.byte	1
+ 1328 0005 06       		.byte	6
+ 1329              		.section	.bss.color,"aw",%nobits
+ 1330              		.align	2
+ 1331              		.set	.LANCHOR3,. + 0
+ 1334              	color:
+ 1335 0000 00000000 		.space	4
+ 1336              		.section	.bss.color2,"aw",%nobits
+ 1337              		.align	2
+ 1338              		.set	.LANCHOR4,. + 0
+ 1341              	color2:
+ 1342 0000 00000000 		.space	4
+ 1343              		.section	.bss.hw,"aw",%nobits
+ 1344              		.align	2
+ 1347              	hw:
+ 1348 0000 00000000 		.space	37432
+ 1348      00000000 
+ 1348      00000000 
+ 1348      00000000 
+ 1348      00000000 
+ 1349              		.section	.bss.knob2,"aw",%nobits
+ 1350              		.align	2
+ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s 			page 48
+
+
+ 1351              		.set	.LANCHOR2,. + 0
+ 1354              	knob2:
+ 1355 0000 00000000 		.space	56
+ 1355      00000000 
+ 1355      00000000 
+ 1355      00000000 
+ 1355      00000000 
+ 1356              		.section	.bss.led1Color,"aw",%nobits
+ 1357              		.align	2
+ 1358              		.set	.LANCHOR0,. + 0
+ 1361              	led1Color:
+ 1362 0000 00000000 		.space	48
+ 1362      00000000 
+ 1362      00000000 
+ 1362      00000000 
+ 1362      00000000 
+ 1363              		.section	.bss.led2Color,"aw",%nobits
+ 1364              		.align	2
+ 1365              		.set	.LANCHOR1,. + 0
+ 1368              	led2Color:
+ 1369 0000 00000000 		.space	1212
+ 1369      00000000 
+ 1369      00000000 
+ 1369      00000000 
+ 1369      00000000 
+ 1370              		.text
+ 1371              	.Letext0:
+ 1372              		.file 20 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 1373              		.file 21 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\sys\\_stdint.h"
+ 1374              		.file 22 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\stdint.h"
+ 1375              		.file 23 "c:\\program files\\daisytoolchain\\lib\\gcc\\arm-none-eabi\\10.2.1\\include\\stddef.h"
+ 1376              		.file 24 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\cmath"
+ 1377              		.file 25 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\bits\\std_abs.h"
+ 1378              		.file 26 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\cstdlib"
+ 1379              		.file 27 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\cstdint"
+ 1380              		.file 28 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\type_traits"
+ 1381              		.file 29 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\debug\\debug.h"
+ 1382              		.file 30 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\arm-none-eabi\\t
+ 1383              		.file 31 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\bits\\algorithmf
+ 1384              		.file 32 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\bits\\stl_pair.h
+ 1385              		.file 33 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\bits\\exception_
+ 1386              		.file 34 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\cstdarg"
+ 1387              		.file 35 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\cstdio"
+ 1388              		.file 36 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\cstring"
+ 1389              		.file 37 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\cwchar"
+ 1390              		.file 38 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\clocale"
+ 1391              		.file 39 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\bits\\basic_stri
+ 1392              		.file 40 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\bits\\stl_tempbu
+ 1393              		.file 41 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\bits\\predefined
+ 1394              		.file 42 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\sys\\_types.h"
+ 1395              		.file 43 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\sys\\reent.h"
+ 1396              		.file 44 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\sys\\lock.h"
+ 1397              		.file 45 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\math.h"
+ 1398              		.file 46 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\stdlib.h"
+ 1399              		.file 47 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\math.h"
+ 1400              		.file 48 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\c++\\10.2.1\\stdlib.h"
+ 1401              		.file 49 "../../libDaisy//src/daisy_core.h"
+ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s 			page 49
+
+
+ 1402              		.file 50 "../../libDaisy//src/per/tim.h"
+ 1403              		.file 51 "../../libDaisy//src/per/sai.h"
+ 1404              		.file 52 "../../libDaisy//src/hid/MidiEvent.h"
+ 1405              		.file 53 "../../libDaisy//src/util/wav_format.h"
+ 1406              		.file 54 "../../libDaisy//src/dev/max11300.h"
+ 1407              		.file 55 "../../libDaisy//src/per/gpio.h"
+ 1408              		.file 56 "../../libDaisy//src/dev/sdram.h"
+ 1409              		.file 57 "c:\\program files\\daisytoolchain\\lib\\gcc\\arm-none-eabi\\10.2.1\\include\\stdarg.h"
+ 1410              		.file 58 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\stdio.h"
+ 1411              		.file 59 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\string.h"
+ 1412              		.file 60 "../../DaisySP//Source/Control/adenv.h"
+ 1413              		.file 61 "../../DaisySP//Source/Utility/dsp.h"
+ 1414              		.file 62 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\wchar.h"
+ 1415              		.file 63 "c:\\program files\\daisytoolchain\\arm-none-eabi\\include\\locale.h"
+ 1416              		.file 64 "<built-in>"
+ 1417              		.file 65 "../../libDaisy//src/dev/sr_595.h"
+ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s 			page 50
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 ExampleProject.cpp
-C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s:17     .text._ZN5daisy8DaisyPodD2Ev:00000000 $t
-C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s:26     .text._ZN5daisy8DaisyPodD2Ev:00000000 _ZN5daisy8DaisyPodD2Ev
-C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s:26     .text._ZN5daisy8DaisyPodD2Ev:00000000 _ZN5daisy8DaisyPodD1Ev
-C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s:154    .text._Z13AudioCallbackPKPKfPPfj:00000000 $t
-C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s:162    .text._Z13AudioCallbackPKPKfPPfj:00000000 _Z13AudioCallbackPKPKfPPfj
-C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s:248    .text._Z13AudioCallbackPKPKfPPfj:00000038 $d
-C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s:695    .bss.hw:00000000 hw
-C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s:253    .text.startup.main:00000000 $t
-C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s:261    .text.startup.main:00000000 main
-C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s:329    .text.startup.main:00000044 $d
-C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s:335    .text.startup._GLOBAL__sub_I_hw:00000000 $t
-C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s:342    .text.startup._GLOBAL__sub_I_hw:00000000 _GLOBAL__sub_I_hw
-C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s:667    .text.startup._GLOBAL__sub_I_hw:00000050 $d
-C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s:678    .init_array:00000000 $d
-C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s:682    .rodata:00000000 $d
-C:\Users\wuru8\AppData\Local\Temp\ccj03Ghd.s:692    .bss.hw:00000000 $d
+C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s:17     .text._ZN5daisy9ParameterD2Ev:00000000 $t
+C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s:26     .text._ZN5daisy9ParameterD2Ev:00000000 _ZN5daisy9ParameterD2Ev
+C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s:26     .text._ZN5daisy9ParameterD2Ev:00000000 _ZN5daisy9ParameterD1Ev
+C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s:49     .text._ZN5daisy8DaisyPodD2Ev:00000000 $t
+C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s:57     .text._ZN5daisy8DaisyPodD2Ev:00000000 _ZN5daisy8DaisyPodD2Ev
+C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s:57     .text._ZN5daisy8DaisyPodD2Ev:00000000 _ZN5daisy8DaisyPodD1Ev
+C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s:184    .text.__tcf_0:00000000 $t
+C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s:191    .text.__tcf_0:00000000 __tcf_0
+C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s:205    .text.__tcf_1:00000000 $t
+C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s:212    .text.__tcf_1:00000000 __tcf_1
+C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s:223    .text._Z7InitLEDv:00000000 $t
+C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s:231    .text._Z7InitLEDv:00000000 _Z7InitLEDv
+C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s:354    .text._Z7InitLEDv:000000b0 $d
+C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s:1347   .bss.hw:00000000 hw
+C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s:370    .text.startup.main:00000000 $t
+C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s:378    .text.startup.main:00000000 main
+C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s:432    .text.startup.main:00000030 $d
+C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s:683    .text._Z13AudioCallbackPKPKfPPfj:00000000 _Z13AudioCallbackPKPKfPPfj
+C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s:438    .text._Z13UpdateEncoderv:00000000 $t
+C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s:446    .text._Z13UpdateEncoderv:00000000 _Z13UpdateEncoderv
+C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s:534    .text._Z13UpdateEncoderv:00000034 $d
+C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s:540    .text._Z11UpdateKnobsv:00000000 $t
+C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s:548    .text._Z11UpdateKnobsv:00000000 _Z11UpdateKnobsv
+C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s:575    .text._Z11UpdateKnobsv:00000014 $d
+C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s:581    .text._Z10UpdateLedsv:00000000 $t
+C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s:589    .text._Z10UpdateLedsv:00000000 _Z10UpdateLedsv
+C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s:666    .text._Z10UpdateLedsv:00000054 $d
+C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s:675    .text._Z13AudioCallbackPKPKfPPfj:00000000 $t
+C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s:811    .text._Z13AudioCallbackPKPKfPPfj:0000005c $d
+C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s:818    .text._Z14UpdateControlsv:00000000 $t
+C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s:826    .text._Z14UpdateControlsv:00000000 _Z14UpdateControlsv
+C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s:881    .text._Z14UpdateControlsv:0000002c $d
+C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s:888    .text.startup._GLOBAL__sub_I_hw:00000000 $t
+C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s:895    .text.startup._GLOBAL__sub_I_hw:00000000 _GLOBAL__sub_I_hw
+C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s:1296   .text.startup._GLOBAL__sub_I_hw:0000006c $d
+C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s:1311   .init_array:00000000 $d
+C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s:1341   .bss.color2:00000000 color2
+C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s:1334   .bss.color:00000000 color
+C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s:1368   .bss.led2Color:00000000 led2Color
+C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s:1361   .bss.led1Color:00000000 led1Color
+C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s:1354   .bss.knob2:00000000 knob2
+C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s:1320   .rodata:00000000 $d
+C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s:1330   .bss.color:00000000 $d
+C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s:1337   .bss.color2:00000000 $d
+C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s:1344   .bss.hw:00000000 $d
+C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s:1350   .bss.knob2:00000000 $d
+C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s:1357   .bss.led1Color:00000000 $d
+C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s:1364   .bss.led2Color:00000000 $d
+                           .group:00000000 _ZN5daisy9ParameterD5Ev
                            .group:00000000 _ZN5daisy8DaisyPodD5Ev
 
 UNDEFINED SYMBOLS
-_ZN5daisy8DaisyPod21ProcessAnalogControlsEv
-_ZN5daisy8DaisyPod22ProcessDigitalControlsEv
+_ZN5daisy5Color4InitEfff
+_ZN5daisy9Parameter4InitENS_13AnalogControlEffNS0_5CurveE
 _ZN5daisy8DaisyPod4InitEb
+ARM GAS  C:\Users\wuru8\AppData\Local\Temp\ccHtNRSc.s 			page 51
+
+
 _ZN5daisy8DaisyPod17SetAudioBlockSizeEj
 _ZN5daisy8DaisyPod18SetAudioSampleRateENS_9SaiHandle6Config10SampleRateE
 _ZN5daisy8DaisyPod8StartAdcEv
 _ZN5daisy8DaisyPod10StartAudioEPFvPKPKfPPfjE
-_ZN5daisy9DaisySeed6SetLedEb
-_ZN5daisy8DaisyPod7DelayMsEj
+_ZN5daisy9Parameter7ProcessEv
+_ZN5daisy6RgbLed8SetColorENS_5ColorE
+_ZN5daisy8DaisyPod10UpdateLedsEv
+_ZN5daisy8DaisyPod21ProcessAnalogControlsEv
+_ZN5daisy8DaisyPod22ProcessDigitalControlsEv
 __aeabi_atexit
 __dso_handle
