@@ -1,19 +1,38 @@
 #include "daisy_pod.h"
 #include "daisysp.h"
+#include <math.h>
+#include <random>
 
 using namespace daisy;
 using namespace daisysp;
 
-DaisyPod hw;
+std::random_device rd;     // Only used once to initialise (seed) engine
+std::mt19937 rng(rd());    // Random-number engine used (Mersenne-Twister in this case)
+std::uniform_int_distribution<int> uni(1,12); // Guaranteed unbiased
 
+
+
+
+
+DaisyPod hw;
+Oscillator osc;
+Parameter knob1;
 Parameter knob2;
 
 Color led1Color[4];
 Color led2Color[101];
 int color = 0;
 int color2 = 0;
+float osc_freq = 440.f;
 
 void UpdateControls();
+void SetOsc();
+
+void InitOsc()
+{
+	knob1.Init(hw.knob1, -0.4999, 6.4999, Parameter::LINEAR);
+	osc.Init(hw.AudioSampleRate());
+}
 
 void InitLED()
 {
@@ -35,24 +54,32 @@ void AudioCallback(AudioHandle::InputBuffer in, AudioHandle::OutputBuffer out, s
 {
 	UpdateControls();
 
+	SetOsc();
+
 	hw.ProcessAllControls();
+
 	for (size_t i = 0; i < size; i++)
 	{
-		out[0][i] = in[0][i];
-		out[1][i] = in[1][i];
+		//out[0][i] = in[0][i];
+		//out[1][i] = in[1][i];
+
+		out[0][i] = osc.Process();
+		out[1][i] = out[0][i];
+
 	}
 }
 
 int main(void)
 {
 	hw.Init();
+	
 	hw.SetAudioBlockSize(4); // number of samples handled per callback
 	hw.SetAudioSampleRate(SaiHandle::Config::SampleRate::SAI_48KHZ);
 	hw.StartAdc();
 	hw.StartAudio(AudioCallback);
 
 	InitLED();
-
+	InitOsc();
 
 	while(1)
 	{
@@ -98,9 +125,34 @@ void UpdateControls()
 	hw.ProcessAnalogControls();
     hw.ProcessDigitalControls();
 
-
-
     UpdateEncoder();
     UpdateKnobs();
     UpdateLeds();
+
+	
+}
+
+void SetOsc()
+{
+	osc.SetWaveform((int)round(knob1.Process()));
+	osc.SetAmp(0.5);
+	
+	 
+
+	if(hw.button2.RisingEdge())
+	{
+		int random_integer = uni(rng);
+		float random_float = random_integer * 0.08333;
+		osc_freq = osc_freq * pow(2,random_float);
+	}
+    
+	if(hw.button1.RisingEdge())
+	{
+		int random_integer = uni(rng);
+		float random_float = random_integer * 0.08333;
+		osc_freq = osc_freq / pow(2,random_float);
+	}
+	osc.SetFreq(osc_freq);
+        
+
 }
