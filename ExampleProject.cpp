@@ -123,11 +123,11 @@ void UpdateLeds()
 void UpdateControls()
 {
 	hw.ProcessAnalogControls();
-    hw.ProcessDigitalControls();
+	hw.ProcessDigitalControls();
 
-    UpdateEncoder();
-    UpdateKnobs();
-    UpdateLeds();
+	UpdateEncoder();
+	UpdateKnobs();
+	UpdateLeds();
 
 	
 }
